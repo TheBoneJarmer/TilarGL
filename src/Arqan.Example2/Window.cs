@@ -82,14 +82,14 @@ namespace Arqan.Example2
             }
         }
 
-        public void Open(bool fullscreen = false, bool vsync = true, bool pollEvents = true)
+        public void Open(bool fullscreen = false, bool vsync = true)
         {
             InitGLFW();
             InitWindow(fullscreen);
             InitEvents();
             InitSettings(vsync);
 
-            Sync(pollEvents);
+            Loop();
         }
 
         public void Close()
@@ -151,28 +151,21 @@ namespace Arqan.Example2
             }
         }
 
-        private void Sync(bool pollEvents)
+        private void Loop()
         {
-            double dt = 1 / 60.0;
-            double currentTime = GLFW.glfwGetTime();
-
+            var lastTime = GLFW.glfwGetTime();
+            
             // Main loop
             while (GLFW.glfwWindowShouldClose(Handle) == 0)
             {
-                double newTime = GLFW.glfwGetTime();
-                double frameTime = newTime - currentTime;
-                currentTime = newTime;
+                double currentTime = GLFW.glfwGetTime();
+                double deltaTime = currentTime - lastTime;
+                lastTime = currentTime;
 
-                while (frameTime > 0)
+                for (var i = 0; i < blocks.Length; i++)
                 {
-                    double deltaTime = Math.Min(frameTime, dt);
-                    frameTime -= deltaTime;
-
-                    for (var i = 0; i < blocks.Length; i++)
-                    {
-                        blocks[i].UseDelta = useDelta;
-                        blocks[i].Update(deltaTime, width, height);
-                    }
+                    blocks[i].UseDelta = useDelta;
+                    blocks[i].Update(deltaTime, width, height);
                 }
 
                 // Render a background and enable some stuff for 2d rendering with alpha

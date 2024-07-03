@@ -41,6 +41,8 @@ namespace Arqan.Example2
 
         public void Render()
         {
+            // Legacy OpenGL because I was too lazy to set up and generate shaders
+            // Do not use this in a real game! It has been deprecated for a long time. Use shaders instead.
             GL.glColor3f(r, g, b);
             GL.glBegin(GL.GL_QUADS);
             GL.glVertex2d(X, Y);
