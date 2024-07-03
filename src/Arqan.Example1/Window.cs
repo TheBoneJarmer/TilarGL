@@ -194,6 +194,11 @@ namespace Arqan.Example1
             {
                 GLFW.glfwSetWindowShouldClose(windowHandle, 1);
             }
+
+            if (key == GLFW.GLFW_KEY_M && action == GLFW.GLFW_PRESS)
+            {
+                GLFW.glfwMaximizeWindow(windowHandle);
+            }
         }
 
         private void OnCharFunction(nint windowHandle, uint codepoint)

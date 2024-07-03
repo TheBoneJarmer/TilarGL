@@ -7,11 +7,11 @@
   </PropertyGroup>
   
   <ItemGroup Condition="'$(OS)' == 'UNIX'">
-    <PackageReference Include="Arqan.Linux" Version="2.3.0" />
+    <PackageReference Include="Arqan.Linux" Version="2.3.3" />
   </ItemGroup>
   
   <ItemGroup Condition="'$(OS)' == 'Windows_NT'">
-    <PackageReference Include="Arqan.Windows" Version="2.3.0" />
+    <PackageReference Include="Arqan.Windows" Version="2.3.3" />
   </ItemGroup>
 
 </Project>

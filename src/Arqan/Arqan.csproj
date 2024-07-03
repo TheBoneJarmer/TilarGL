@@ -17,7 +17,7 @@
 	</PropertyGroup>
 	
 	<PropertyGroup>
-		<Version>2.3.3</Version>
+		<Version>2.3.6</Version>
 		<Authors>Ruben Labruyere</Authors>
 		<Company>Ruben Labruyere</Company>
 		<Description>Arqan is a .NET wrapper for OpenGL methods, enums and constants ranging from OpenGL1.0 to openGL4.4 as well as a wrapper for GLFW methods, enums and constants.

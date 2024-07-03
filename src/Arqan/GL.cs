@@ -1922,7 +1922,7 @@ namespace Arqan
 		private delegate void glGetActiveUniformDelegate(uint program, uint index, int bufSize, int[] length, int[] size, uint[] type, string[] name);
 		private delegate void glGetAttachedShadersDelegate(uint program, int maxCount, int[] count, uint[] shaders);
 		private delegate uint glGetAttribLocationDelegate(uint program, string name);
-		private delegate void glGetProgramivDelegate(uint program, uint pname, int[] @params);
+		private delegate void glGetProgramivDelegate(uint program, uint pname, ref int @params);
 		private delegate void glGetProgramInfoLogDelegate(uint program, int bufSize, ref int length, byte[] infoLog);
 		private delegate void glGetShaderivDelegate(uint shader, uint pname, ref int @params);
         private delegate void glGetShaderInfoLogDelegate(uint shader, int bufSize, ref int length, byte[] infoLog);
@@ -3865,9 +3865,9 @@ namespace Arqan
 			return (uint)XWGL.GetDelegateFor<glGetAttribLocationDelegate>()(program, name);
 		}
 		
-		public static void glGetProgramiv(uint program, uint pname, int[] @params)
+		public static void glGetProgramiv(uint program, uint pname, ref int @params)
 		{
-			XWGL.GetDelegateFor<glGetProgramivDelegate>()(program, pname, @params);
+			XWGL.GetDelegateFor<glGetProgramivDelegate>()(program, pname, ref @params);
 		}
 		
 		public static void glGetProgramInfoLog(uint program, int bufSize, ref int length, byte[] infoLog)
