@@ -1784,19 +1784,19 @@ namespace Arqan
 
         #region Delegates
 		
-		private delegate void glDrawRangeElementsDelegate(uint mode, uint start, uint end, int count, uint type, IntPtr indices);
-		private delegate void glTexImage3DDelegate(uint target, int level, int internalformat, int width, int height, int depth, int border, uint format, uint type, IntPtr pixels);
-		private delegate void glTexSubImage3DDelegate(uint target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, uint type, IntPtr pixels);
+		private delegate void glDrawRangeElementsDelegate(uint mode, uint start, uint end, int count, uint type, nint indices);
+		private delegate void glTexImage3DDelegate(uint target, int level, int internalformat, int width, int height, int depth, int border, uint format, uint type, nint pixels);
+		private delegate void glTexSubImage3DDelegate(uint target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, uint type, nint pixels);
 		private delegate void glCopyTexSubImage3DDelegate(uint target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
         private delegate void glActiveTextureDelegate(uint texture);
 		private delegate void glSampleCoverageDelegate(float value, bool invert);
-		private delegate void glCompressedTexImage3DDelegate(uint target, int level, uint internalformat, int width, int height, int depth, int border, int imageSize, IntPtr data);
-		private delegate void glCompressedTexImage2DDelegate(uint target, int level, uint internalformat, int width, int height, int border, int imageSize, IntPtr data);
-		private delegate void glCompressedTexImage1DDelegate(uint target, int level, uint internalformat, int width, int border, int imageSize, IntPtr data);
-		private delegate void glCompressedTexSubImage3DDelegate(uint target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, int imageSize, IntPtr data);
-		private delegate void glCompressedTexSubImage2DDelegate(uint target, int level, int xoffset, int yoffset, int width, int height, uint format, int imageSize, IntPtr data);
-		private delegate void glCompressedTexSubImage1DDelegate(uint target, int level, int xoffset, int width, uint format, int imageSize, IntPtr data);
-		private delegate void glGetCompressedTexImageDelegate(uint target, int level, IntPtr img);
+		private delegate void glCompressedTexImage3DDelegate(uint target, int level, uint internalformat, int width, int height, int depth, int border, int imageSize, nint data);
+		private delegate void glCompressedTexImage2DDelegate(uint target, int level, uint internalformat, int width, int height, int border, int imageSize, nint data);
+		private delegate void glCompressedTexImage1DDelegate(uint target, int level, uint internalformat, int width, int border, int imageSize, nint data);
+		private delegate void glCompressedTexSubImage3DDelegate(uint target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, int imageSize, nint data);
+		private delegate void glCompressedTexSubImage2DDelegate(uint target, int level, int xoffset, int yoffset, int width, int height, uint format, int imageSize, nint data);
+		private delegate void glCompressedTexSubImage1DDelegate(uint target, int level, int xoffset, int width, uint format, int imageSize, nint data);
+		private delegate void glGetCompressedTexImageDelegate(uint target, int level, nint img);
 		private delegate void glClientActiveTextureDelegate(uint texture);
 		private delegate void glMultiTexCoord1dDelegate(uint target, double s);
 		private delegate void glMultiTexCoord1dvDelegate(uint target, double[] v);
@@ -1836,7 +1836,7 @@ namespace Arqan
 		private delegate void glMultTransposeMatrixdDelegate(double[] m);
         private delegate void glBlendFuncSeparateDelegate(uint sfactorRGB, uint dfactorRGB, uint sfactorAlpha, uint dfactorAlpha);
 		private delegate void glMultiDrawArraysDelegate(uint mode, int[] first, int[] count, int drawcount);
-		private delegate void glMultiDrawElementsDelegate(uint mode, int[] count, uint type, IntPtr indices, int drawcount);
+		private delegate void glMultiDrawElementsDelegate(uint mode, int[] count, uint type, nint indices, int drawcount);
 		private delegate void glPointParameterfDelegate(uint pname, float param);
 		private delegate void glPointParameterfvDelegate(uint pname, float[] @params);
 		private delegate void glPointParameteriDelegate(uint pname, int param);
@@ -1845,7 +1845,7 @@ namespace Arqan
 		private delegate void glFogCoordfvDelegate(float[] coord);
 		private delegate void glFogCoorddDelegate(double coord);
 		private delegate void glFogCoorddvDelegate(double[] coord);
-		private delegate void glFogCoordPointerDelegate(uint type, int stride, IntPtr pointer);
+		private delegate void glFogCoordPointerDelegate(uint type, int stride, nint pointer);
 		private delegate void glSecondaryColor3bDelegate(byte red, byte green, byte blue);
 		private delegate void glSecondaryColor3bvDelegate(byte[] v);
 		private delegate void glSecondaryColor3dDelegate(double red, double green, double blue);
@@ -1862,7 +1862,7 @@ namespace Arqan
 		private delegate void glSecondaryColor3uivDelegate(uint[] v);
 		private delegate void glSecondaryColor3usDelegate(ushort red, ushort green, ushort blue);
 		private delegate void glSecondaryColor3usvDelegate(ushort[] v);
-		private delegate void glSecondaryColorPointerDelegate(int size, uint type, int stride, IntPtr pointer);
+		private delegate void glSecondaryColorPointerDelegate(int size, uint type, int stride, nint pointer);
 		private delegate void glWindowPos2dDelegate(double x, double y);
 		private delegate void glWindowPos2dvDelegate(double[] v);
 		private delegate void glWindowPos2fDelegate(float x, float y);
@@ -1898,11 +1898,11 @@ namespace Arqan
 		private delegate void glBufferDataIntDelegate(uint target, int size, int[] data, uint usage);
 		private delegate void glBufferDataDoubleDelegate(uint target, int size, double[] data, uint usage);
 		private delegate void glBufferSubDataDelegate(uint target, int offset, int size, float[] data);
-		private delegate void glGetBufferSubDataDelegate(uint target, IntPtr offset, IntPtr size, IntPtr data);
+		private delegate void glGetBufferSubDataDelegate(uint target, nint offset, nint size, nint data);
 		private delegate void glMapBufferDelegate(uint target, uint access);
 		private delegate bool glUnmapBufferDelegate(uint target);
 		private delegate void glGetBufferParameterivDelegate(uint target, uint pname, int[] @params);
-		private delegate void glGetBufferPointervDelegate(uint target, uint pname, IntPtr @params);
+		private delegate void glGetBufferPointervDelegate(uint target, uint pname, nint @params);
         private delegate void glBlendEquationSeparateDelegate(uint modeRGB, uint modeAlpha);
 		private delegate void glDrawBuffersDelegate(int n, uint[] bufs);
 		private delegate void glStencilOpSeparateDelegate(uint face, uint sfail, uint dpfail, uint dppass);
@@ -1933,7 +1933,7 @@ namespace Arqan
 		private delegate void glGetVertexAttribdvDelegate(uint index, uint pname, double[] @params);
 		private delegate void glGetVertexAttribfvDelegate(uint index, uint pname, float[] @params);
 		private delegate void glGetVertexAttribivDelegate(uint index, uint pname, int[] @params);
-		private delegate void glGetVertexAttribPointervDelegate(uint index, uint pname, IntPtr pointer);
+		private delegate void glGetVertexAttribPointervDelegate(uint index, uint pname, nint pointer);
 		private delegate bool glIsProgramDelegate(uint program);
 		private delegate bool glIsShaderDelegate(uint shader);
 		private delegate void glLinkProgramDelegate(uint program);
@@ -1996,8 +1996,8 @@ namespace Arqan
 		private delegate void glVertexAttrib4ubvDelegate(uint index, byte[] v);
 		private delegate void glVertexAttrib4uivDelegate(uint index, uint[] v);
 		private delegate void glVertexAttrib4usvDelegate(uint index, ushort[] v);
-		private delegate void glVertexAttribPointerDelegate(uint index, int size, uint type, bool normalized, int stride, IntPtr pointer);
-        private delegate void glReadPixelsDelegate(float x, float y, float width, float height, uint format, uint type, IntPtr pixels);
+		private delegate void glVertexAttribPointerDelegate(uint index, int size, uint type, bool normalized, int stride, nint pointer);
+        private delegate void glReadPixelsDelegate(float x, float y, float width, float height, uint format, uint type, nint pixels);
         private delegate void glUniformMatrix2x3fvDelegate(uint location, int count, bool transpose, float[] value);
 		private delegate void glUniformMatrix3x2fvDelegate(uint location, int count, bool transpose, float[] value);
 		private delegate void glUniformMatrix2x4fvDelegate(uint location, int count, bool transpose, float[] value);
@@ -2012,14 +2012,14 @@ namespace Arqan
 		private delegate bool glIsEnablediDelegate(uint target, uint index);
 		private delegate void glBeginTransformFeedbackDelegate(uint primitiveMode);
 		private delegate void glEndTransformFeedbackDelegate();
-		private delegate void glBindBufferRangeDelegate(uint target, uint index, uint buffer, IntPtr offset, IntPtr size);
+		private delegate void glBindBufferRangeDelegate(uint target, uint index, uint buffer, nint offset, nint size);
 		private delegate void glBindBufferBaseDelegate(uint target, uint index, uint buffer);
 		private delegate void glTransformFeedbackVaryingsDelegate(uint program, int count, char[] varyings, uint bufferMode);
 		private delegate void glGetTransformFeedbackVaryingDelegate(uint program, uint index, int bufSize, int[] length, int[] size, uint[] type, char[] name);
 		private delegate void glClampColorDelegate(uint target, uint clamp);
 		private delegate void glBeginConditionalRenderDelegate(uint id, uint mode);
 		private delegate void glEndConditionalRenderDelegate();
-		private delegate void glVertexAttribIPointerDelegate(uint index, int size, uint type, int stride, IntPtr pointer);
+		private delegate void glVertexAttribIPointerDelegate(uint index, int size, uint type, int stride, nint pointer);
 		private delegate void glGetVertexAttribIivDelegate(uint index, uint pname, int[] @params);
 		private delegate void glGetVertexAttribIuivDelegate(uint index, uint pname, uint[] @params);
 		private delegate void glVertexAttribI1iDelegate(uint index, int x);
@@ -2081,24 +2081,24 @@ namespace Arqan
 		private delegate void glBlitFramebufferDelegate(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, uint mask, uint filter);
 		private delegate void glRenderbufferStorageMultisampleDelegate(uint target, int samples, uint internalformat, int width, int height);
 		private delegate void glFramebufferTextureLayerDelegate(uint target, uint attachment, uint texture, int level, int layer);
-		private delegate void glMapBufferRangeDelegate(uint target, IntPtr offset, IntPtr length, uint access);
-		private delegate void glFlushMappedBufferRangeDelegate(uint target, IntPtr offset, IntPtr length);
+		private delegate void glMapBufferRangeDelegate(uint target, nint offset, nint length, uint access);
+		private delegate void glFlushMappedBufferRangeDelegate(uint target, nint offset, nint length);
 		private delegate void glBindVertexArrayDelegate(uint array);
 		private delegate void glDeleteVertexArraysDelegate(int n, uint[] arrays);
 		private delegate void glGenVertexArraysDelegate(int n, uint[] arrays);
 		private delegate bool glIsVertexArrayDelegate(uint array);
-        private delegate void glDrawElementsBaseVertexDelegate(uint mode, int count, uint type, IntPtr indices, int basevertex);
-		private delegate void glDrawRangeElementsBaseVertexDelegate(uint mode, uint start, uint end, int count, uint type, IntPtr indices, int basevertex);
-		private delegate void glDrawElementsInstancedBaseVertexDelegate(uint mode, int count, uint type, IntPtr indices, int instancecount, int basevertex);
-		private delegate void glMultiDrawElementsBaseVertexDelegate(uint mode, int[] count, uint type, IntPtr indices, int drawcount, int[] basevertex);
+        private delegate void glDrawElementsBaseVertexDelegate(uint mode, int count, uint type, nint indices, int basevertex);
+		private delegate void glDrawRangeElementsBaseVertexDelegate(uint mode, uint start, uint end, int count, uint type, nint indices, int basevertex);
+		private delegate void glDrawElementsInstancedBaseVertexDelegate(uint mode, int count, uint type, nint indices, int instancecount, int basevertex);
+		private delegate void glMultiDrawElementsBaseVertexDelegate(uint mode, int[] count, uint type, nint indices, int drawcount, int[] basevertex);
 		private delegate void glProvokingVertexDelegate(uint mode);
-		private delegate IntPtr glFenceSyncDelegate(uint condition, uint flags);
-		private delegate bool glIsSyncDelegate(IntPtr sync);
-		private delegate void glDeleteSyncDelegate(IntPtr sync);
-		private delegate uint glClientWaitSyncDelegate(IntPtr sync, uint flags, UInt64 timeout);
-		private delegate void glWaitSyncDelegate(IntPtr sync, uint flags, UInt64 timeout);
+		private delegate nint glFenceSyncDelegate(uint condition, uint flags);
+		private delegate bool glIsSyncDelegate(nint sync);
+		private delegate void glDeleteSyncDelegate(nint sync);
+		private delegate uint glClientWaitSyncDelegate(nint sync, uint flags, UInt64 timeout);
+		private delegate void glWaitSyncDelegate(nint sync, uint flags, UInt64 timeout);
 		private delegate void glGetInteger64vDelegate(uint pname, Int64[] data);
-		private delegate void glGetSyncivDelegate(IntPtr sync, uint pname, int bufSize, int[] length, int[] values);
+		private delegate void glGetSyncivDelegate(nint sync, uint pname, int bufSize, int[] length, int[] values);
 		private delegate void glGetInteger64i_vDelegate(uint target, uint index, Int64[] data);
 		private delegate void glGetBufferParameteri64vDelegate(uint target, uint pname, Int64[] @params);
 		private delegate void glFramebufferTextureDelegate(uint target, uint attachment, uint texture, int level);
@@ -2107,10 +2107,10 @@ namespace Arqan
 		private delegate void glGetMultisamplefvDelegate(uint pname, uint index, float[] val);
 		private delegate void glSampleMaskiDelegate(uint maskNumber, uint mask);
         private delegate void glDrawArraysInstancedDelegate(uint mode, int first, int count, int instancecount);
-		private delegate void glDrawElementsInstancedDelegate(uint mode, int count, uint type, IntPtr indices, int instancecount);
+		private delegate void glDrawElementsInstancedDelegate(uint mode, int count, uint type, nint indices, int instancecount);
 		private delegate void glTexBufferDelegate(uint target, uint internalformat, uint buffer);
 		private delegate void glPrimitiveRestartIndexDelegate(uint index);
-		private delegate void glCopyBufferSubDataDelegate(uint readTarget, uint writeTarget, IntPtr readOffset, IntPtr writeOffset, IntPtr size);
+		private delegate void glCopyBufferSubDataDelegate(uint readTarget, uint writeTarget, nint readOffset, nint writeOffset, nint size);
 		private delegate void glGetUniformIndicesDelegate(uint program, int uniformCount, char[] uniformNames, uint[] uniformIndices);
 		private delegate void glGetActiveUniformsivDelegate(uint program, int uniformCount, uint[] uniformIndices, uint pname, int[] @params);
 		private delegate void glGetActiveUniformNameDelegate(uint program, uint uniformIndex, int bufSize, int[] length, char[] uniformName);
@@ -2181,8 +2181,8 @@ namespace Arqan
 		private delegate void glBlendEquationSeparateiDelegate(uint buf, uint modeRGB, uint modeAlpha);
 		private delegate void glBlendFunciDelegate(uint buf, uint src, uint dst);
 		private delegate void glBlendFuncSeparateiDelegate(uint buf, uint srcRGB, uint dstRGB, uint srcAlpha, uint dstAlpha);
-		private delegate void glDrawArraysIndirectDelegate(uint mode, IntPtr indirect);
-		private delegate void glDrawElementsIndirectDelegate(uint mode, uint type, IntPtr indirect);
+		private delegate void glDrawArraysIndirectDelegate(uint mode, nint indirect);
+		private delegate void glDrawElementsIndirectDelegate(uint mode, uint type, nint indirect);
 		private delegate void glUniform1dDelegate(uint location, double x);
 		private delegate void glUniform2dDelegate(uint location, double x, double y);
 		private delegate void glUniform3dDelegate(uint location, double x, double y, double z);
@@ -2223,12 +2223,12 @@ namespace Arqan
 		private delegate void glEndQueryIndexedDelegate(uint target, uint index);
 		private delegate void glGetQueryIndexedivDelegate(uint target, uint index, uint pname, int[] @params);
         private delegate void glReleaseShaderCompilerDelegate();
-		private delegate void glShaderBinaryDelegate(int count, uint[] shaders, uint binaryformat, IntPtr binary, int length);
+		private delegate void glShaderBinaryDelegate(int count, uint[] shaders, uint binaryformat, nint binary, int length);
 		private delegate void glGetShaderPrecisionFormatDelegate(uint shadertype, uint precisiontype, int[] range, int[] precision);
 		private delegate void glDepthRangefDelegate(float n, float f);
 		private delegate void glClearDepthfDelegate(float d);
-		private delegate void glGetProgramBinaryDelegate(uint program, int bufSize, int[] length, uint[] binaryFormat, IntPtr binary);
-		private delegate void glProgramBinaryDelegate(uint program, uint binaryFormat, IntPtr binary, int length);
+		private delegate void glGetProgramBinaryDelegate(uint program, int bufSize, int[] length, uint[] binaryFormat, nint binary);
+		private delegate void glProgramBinaryDelegate(uint program, uint binaryFormat, nint binary, int length);
 		private delegate void glProgramParameteriDelegate(uint program, uint pname, int value);
 		private delegate void glUseProgramStagesDelegate(uint pipeline, uint stages, uint program);
 		private delegate void glActiveShaderProgramDelegate(uint pipeline, uint program);
@@ -2298,7 +2298,7 @@ namespace Arqan
 		private delegate void glVertexAttribL2dvDelegate(uint index, double[] v);
 		private delegate void glVertexAttribL3dvDelegate(uint index, double[] v);
 		private delegate void glVertexAttribL4dvDelegate(uint index, double[] v);
-		private delegate void glVertexAttribLPointerDelegate(uint index, int size, uint type, int stride, IntPtr pointer);
+		private delegate void glVertexAttribLPointerDelegate(uint index, int size, uint type, int stride, nint pointer);
 		private delegate void glGetVertexAttribLdvDelegate(uint index, uint pname, double[] @params);
 		private delegate void glViewportArrayvDelegate(uint first, int count, float[] v);
 		private delegate void glViewportIndexedfDelegate(uint index, float x, float y, float w, float h);
@@ -2311,8 +2311,8 @@ namespace Arqan
 		private delegate void glGetFloati_vDelegate(uint target, uint index, float[] data);
 		private delegate void glGetDoublei_vDelegate(uint target, uint index, double[] data);
         private delegate void glDrawArraysInstancedBaseInstanceDelegate(uint mode, int first, int count, int instancecount, uint baseinstance);
-		private delegate void glDrawElementsInstancedBaseInstanceDelegate(uint mode, int count, uint type, IntPtr indices, int instancecount, uint baseinstance);
-		private delegate void glDrawElementsInstancedBaseVertexBaseInstanceDelegate(uint mode, int count, uint type, IntPtr indices, int instancecount, int basevertex, uint baseinstance);
+		private delegate void glDrawElementsInstancedBaseInstanceDelegate(uint mode, int count, uint type, nint indices, int instancecount, uint baseinstance);
+		private delegate void glDrawElementsInstancedBaseVertexBaseInstanceDelegate(uint mode, int count, uint type, nint indices, int instancecount, int basevertex, uint baseinstance);
 		private delegate void glGetInternalformativDelegate(uint target, uint internalformat, uint pname, int bufSize, int[] @params);
 		private delegate void glGetActiveAtomicCounterBufferivDelegate(uint program, uint bufferIndex, uint pname, int[] @params);
 		private delegate void glBindImageTextureDelegate(uint unit, uint texture, int level, bool layered, int layer, uint access, uint format);
@@ -2322,22 +2322,22 @@ namespace Arqan
 		private delegate void glTexStorage3DDelegate(uint target, int levels, uint internalformat, int width, int height, int depth);
 		private delegate void glDrawTransformFeedbackInstancedDelegate(uint mode, uint id, int instancecount);
 		private delegate void glDrawTransformFeedbackStreamInstancedDelegate(uint mode, uint id, uint stream, int instancecount);
-        private delegate void glClearBufferDataDelegate(uint target, uint internalformat, uint format, uint type, IntPtr data);
-		private delegate void glClearBufferSubDataDelegate(uint target, uint internalformat, IntPtr offset, IntPtr size, uint format, uint type, IntPtr data);
+        private delegate void glClearBufferDataDelegate(uint target, uint internalformat, uint format, uint type, nint data);
+		private delegate void glClearBufferSubDataDelegate(uint target, uint internalformat, nint offset, nint size, uint format, uint type, nint data);
 		private delegate void glDispatchComputeDelegate(uint num_groups_x, uint num_groups_y, uint num_groups_z);
-		private delegate void glDispatchComputeIndirectDelegate(IntPtr indirect);
+		private delegate void glDispatchComputeIndirectDelegate(nint indirect);
 		private delegate void glCopyImageSubDataDelegate(uint srcName, uint srcTarget, int srcLevel, int srcX, int srcY, int srcZ, uint dstName, uint dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth);
 		private delegate void glFramebufferParameteriDelegate(uint target, uint pname, int param);
 		private delegate void glGetFramebufferParameterivDelegate(uint target, uint pname, int[] @params);
 		private delegate void glGetInternalformati64vDelegate(uint target, uint internalformat, uint pname, int bufSize, Int64[] @params);
 		private delegate void glInvalidateTexSubImageDelegate(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth);
 		private delegate void glInvalidateTexImageDelegate(uint texture, int level);
-		private delegate void glInvalidateBufferSubDataDelegate(uint buffer, IntPtr offset, IntPtr length);
+		private delegate void glInvalidateBufferSubDataDelegate(uint buffer, nint offset, nint length);
 		private delegate void glInvalidateBufferDataDelegate(uint buffer);
 		private delegate void glInvalidateFramebufferDelegate(uint target, int numAttachments, uint[] attachments);
 		private delegate void glInvalidateSubFramebufferDelegate(uint target, int numAttachments, uint[] attachments, int x, int y, int width, int height);
-		private delegate void glMultiDrawArraysIndirectDelegate(uint mode, IntPtr indirect, int drawcount, int stride);
-		private delegate void glMultiDrawElementsIndirectDelegate(uint mode, uint type, IntPtr indirect, int drawcount, int stride);
+		private delegate void glMultiDrawArraysIndirectDelegate(uint mode, nint indirect, int drawcount, int stride);
+		private delegate void glMultiDrawElementsIndirectDelegate(uint mode, uint type, nint indirect, int drawcount, int stride);
 		private delegate void glGetProgramInterfaceivDelegate(uint program, uint programInterface, uint pname, int[] @params);
 		private delegate uint glGetProgramResourceIndexDelegate(uint program, uint programInterface, char[] name);
 		private delegate void glGetProgramResourceNameDelegate(uint program, uint programInterface, uint index, int bufSize, int[] length, char[] name);
@@ -2345,11 +2345,11 @@ namespace Arqan
 		private delegate int glGetProgramResourceLocationDelegate(uint program, uint programInterface, char[] name);
 		private delegate int glGetProgramResourceLocationIndexDelegate(uint program, uint programInterface, char[] name);
 		private delegate void glShaderStorageBlockBindingDelegate(uint program, uint storageBlockIndex, uint storageBlockBinding);
-		private delegate void glTexBufferRangeDelegate(uint target, uint internalformat, uint buffer, IntPtr offset, IntPtr size);
+		private delegate void glTexBufferRangeDelegate(uint target, uint internalformat, uint buffer, nint offset, nint size);
 		private delegate void glTexStorage2DMultisampleDelegate(uint target, int samples, uint internalformat, int width, int height, bool fixedsamplelocations);
 		private delegate void glTexStorage3DMultisampleDelegate(uint target, int samples, uint internalformat, int width, int height, int depth, bool fixedsamplelocations);
 		private delegate void glTextureViewDelegate(uint texture, uint target, uint origtexture, uint internalformat, uint minlevel, uint numlevels, uint minlayer, uint numlayers);
-		private delegate void glBindVertexBufferDelegate(uint bindingindex, uint buffer, IntPtr offset, int stride);
+		private delegate void glBindVertexBufferDelegate(uint bindingindex, uint buffer, nint offset, int stride);
 		private delegate void glVertexAttribFormatDelegate(uint attribindex, int size, uint type, bool normalized, uint relativeoffset);
 		private delegate void glVertexAttribIFormatDelegate(uint attribindex, int size, uint type, uint relativeoffset);
 		private delegate void glVertexAttribLFormatDelegate(uint attribindex, int size, uint type, uint relativeoffset);
@@ -2357,46 +2357,46 @@ namespace Arqan
 		private delegate void glVertexBindingDivisorDelegate(uint bindingindex, uint divisor);
 		private delegate void glDebugMessageControlDelegate(uint source, uint type, uint severity, int count, uint[] ids, bool enabled);
 		private delegate void glDebugMessageInsertDelegate(uint source, uint type, uint id, uint severity, int length, char[] buf);
-		private delegate void glDebugMessageCallbackDelegate(IntPtr callback, IntPtr userParam);
+		private delegate void glDebugMessageCallbackDelegate(nint callback, nint userParam);
 		private delegate uint glGetDebugMessageLogDelegate(uint count, int bufSize, uint[] sources, uint[] types, uint[] ids, uint[] severities, int[] lengths, char[] messageLog);
 		private delegate void glPushDebugGroupDelegate(uint source, uint id, int length, char[] message);
 		private delegate void glPopDebugGroupDelegate();
 		private delegate void glObjectLabelDelegate(uint identifier, uint name, int length, char[] label);
 		private delegate void glGetObjectLabelDelegate(uint identifier, uint name, int bufSize, int[] length, char[] label);
-		private delegate void glObjectPtrLabelDelegate(IntPtr ptr, int length, char[] label);
-		private delegate void glGetObjectPtrLabelDelegate(IntPtr ptr, int bufSize, int[] length, char[] label);
-		private delegate void glGetPointervDelegate(uint pname, IntPtr @params);
-        private delegate void glBufferStorageDelegate(uint target, IntPtr size, IntPtr data, uint flags);
-		private delegate void glClearTexImageDelegate(uint texture, int level, uint format, uint type, IntPtr data);
-		private delegate void glClearTexSubImageDelegate(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, uint type, IntPtr data);
+		private delegate void glObjectPtrLabelDelegate(nint ptr, int length, char[] label);
+		private delegate void glGetObjectPtrLabelDelegate(nint ptr, int bufSize, int[] length, char[] label);
+		private delegate void glGetPointervDelegate(uint pname, nint @params);
+        private delegate void glBufferStorageDelegate(uint target, nint size, nint data, uint flags);
+		private delegate void glClearTexImageDelegate(uint texture, int level, uint format, uint type, nint data);
+		private delegate void glClearTexSubImageDelegate(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, uint type, nint data);
 		private delegate void glBindBuffersBaseDelegate(uint target, uint first, int count, uint[] buffers);
-		private delegate void glBindBuffersRangeDelegate(uint target, uint first, int count, uint[] buffers, IntPtr offsets, IntPtr sizes);
+		private delegate void glBindBuffersRangeDelegate(uint target, uint first, int count, uint[] buffers, nint offsets, nint sizes);
 		private delegate void glBindTexturesDelegate(uint first, int count, uint[] textures);
 		private delegate void glBindSamplersDelegate(uint first, int count, uint[] samplers);
 		private delegate void glBindImageTexturesDelegate(uint first, int count, uint[] textures);
-		private delegate void glBindVertexBuffersDelegate(uint first, int count, uint[] buffers, IntPtr offsets, int[] strides);
+		private delegate void glBindVertexBuffersDelegate(uint first, int count, uint[] buffers, nint offsets, int[] strides);
         private delegate void glClipControlDelegate(uint origin, uint depth);
 		private delegate void glCreateTransformFeedbacksDelegate(int n, uint[] ids);
 		private delegate void glTransformFeedbackBufferBaseDelegate(uint xfb, uint index, uint buffer);
-		private delegate void glTransformFeedbackBufferRangeDelegate(uint xfb, uint index, uint buffer, IntPtr offset, IntPtr size);
+		private delegate void glTransformFeedbackBufferRangeDelegate(uint xfb, uint index, uint buffer, nint offset, nint size);
 		private delegate void glGetTransformFeedbackivDelegate(uint xfb, uint pname, int[] param);
 		private delegate void glGetTransformFeedbacki_vDelegate(uint xfb, uint pname, uint index, int[] param);
 		private delegate void glGetTransformFeedbacki64_vDelegate(uint xfb, uint pname, uint index, Int64[] param);
 		private delegate void glCreateBuffersDelegate(int n, uint[] buffers);
-		private delegate void glNamedBufferStorageDelegate(uint buffer, IntPtr size, IntPtr data, uint flags);
-		private delegate void glNamedBufferDataDelegate(uint buffer, IntPtr size, IntPtr data, uint usage);
-		private delegate void glNamedBufferSubDataDelegate(uint buffer, IntPtr offset, IntPtr size, IntPtr data);
-		private delegate void glCopyNamedBufferSubDataDelegate(uint readBuffer, uint writeBuffer, IntPtr readOffset, IntPtr writeOffset, IntPtr size);
-		private delegate void glClearNamedBufferDataDelegate(uint buffer, uint internalformat, uint format, uint type, IntPtr data);
-		private delegate void glClearNamedBufferSubDataDelegate(uint buffer, uint internalformat, IntPtr offset, IntPtr size, uint format, uint type, IntPtr data);
+		private delegate void glNamedBufferStorageDelegate(uint buffer, nint size, nint data, uint flags);
+		private delegate void glNamedBufferDataDelegate(uint buffer, nint size, nint data, uint usage);
+		private delegate void glNamedBufferSubDataDelegate(uint buffer, nint offset, nint size, nint data);
+		private delegate void glCopyNamedBufferSubDataDelegate(uint readBuffer, uint writeBuffer, nint readOffset, nint writeOffset, nint size);
+		private delegate void glClearNamedBufferDataDelegate(uint buffer, uint internalformat, uint format, uint type, nint data);
+		private delegate void glClearNamedBufferSubDataDelegate(uint buffer, uint internalformat, nint offset, nint size, uint format, uint type, nint data);
 		private delegate void glMapNamedBufferDelegate(uint buffer, uint access);
-		private delegate void glMapNamedBufferRangeDelegate(uint buffer, IntPtr offset, IntPtr length, uint access);
+		private delegate void glMapNamedBufferRangeDelegate(uint buffer, nint offset, nint length, uint access);
 		private delegate bool glUnmapNamedBufferDelegate(uint buffer);
-		private delegate void glFlushMappedNamedBufferRangeDelegate(uint buffer, IntPtr offset, IntPtr length);
+		private delegate void glFlushMappedNamedBufferRangeDelegate(uint buffer, nint offset, nint length);
 		private delegate void glGetNamedBufferParameterivDelegate(uint buffer, uint pname, int[] @params);
 		private delegate void glGetNamedBufferParameteri64vDelegate(uint buffer, uint pname, Int64[] @params);
-		private delegate void glGetNamedBufferPointervDelegate(uint buffer, uint pname, IntPtr @params);
-		private delegate void glGetNamedBufferSubDataDelegate(uint buffer, IntPtr offset, IntPtr size, IntPtr data);
+		private delegate void glGetNamedBufferPointervDelegate(uint buffer, uint pname, nint @params);
+		private delegate void glGetNamedBufferSubDataDelegate(uint buffer, nint offset, nint size, nint data);
 		private delegate void glCreateFramebuffersDelegate(int n, uint[] framebuffers);
 		private delegate void glNamedFramebufferRenderbufferDelegate(uint framebuffer, uint attachment, uint renderbuffertarget, uint renderbuffer);
 		private delegate void glNamedFramebufferParameteriDelegate(uint framebuffer, uint pname, int param);
@@ -2421,18 +2421,18 @@ namespace Arqan
 		private delegate void glGetNamedRenderbufferParameterivDelegate(uint renderbuffer, uint pname, int[] @params);
 		private delegate void glCreateTexturesDelegate(uint target, int n, uint[] textures);
 		private delegate void glTextureBufferDelegate(uint texture, uint internalformat, uint buffer);
-		private delegate void glTextureBufferRangeDelegate(uint texture, uint internalformat, uint buffer, IntPtr offset, IntPtr size);
+		private delegate void glTextureBufferRangeDelegate(uint texture, uint internalformat, uint buffer, nint offset, nint size);
 		private delegate void glTextureStorage1DDelegate(uint texture, int levels, uint internalformat, int width);
 		private delegate void glTextureStorage2DDelegate(uint texture, int levels, uint internalformat, int width, int height);
 		private delegate void glTextureStorage3DDelegate(uint texture, int levels, uint internalformat, int width, int height, int depth);
 		private delegate void glTextureStorage2DMultisampleDelegate(uint texture, int samples, uint internalformat, int width, int height, bool fixedsamplelocations);
 		private delegate void glTextureStorage3DMultisampleDelegate(uint texture, int samples, uint internalformat, int width, int height, int depth, bool fixedsamplelocations);
-		private delegate void glTextureSubImage1DDelegate(uint texture, int level, int xoffset, int width, uint format, uint type, IntPtr pixels);
-		private delegate void glTextureSubImage2DDelegate(uint texture, int level, int xoffset, int yoffset, int width, int height, uint format, uint type, IntPtr pixels);
-		private delegate void glTextureSubImage3DDelegate(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, uint type, IntPtr pixels);
-		private delegate void glCompressedTextureSubImage1DDelegate(uint texture, int level, int xoffset, int width, uint format, int imageSize, IntPtr data);
-		private delegate void glCompressedTextureSubImage2DDelegate(uint texture, int level, int xoffset, int yoffset, int width, int height, uint format, int imageSize, IntPtr data);
-		private delegate void glCompressedTextureSubImage3DDelegate(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, int imageSize, IntPtr data);
+		private delegate void glTextureSubImage1DDelegate(uint texture, int level, int xoffset, int width, uint format, uint type, nint pixels);
+		private delegate void glTextureSubImage2DDelegate(uint texture, int level, int xoffset, int yoffset, int width, int height, uint format, uint type, nint pixels);
+		private delegate void glTextureSubImage3DDelegate(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, uint type, nint pixels);
+		private delegate void glCompressedTextureSubImage1DDelegate(uint texture, int level, int xoffset, int width, uint format, int imageSize, nint data);
+		private delegate void glCompressedTextureSubImage2DDelegate(uint texture, int level, int xoffset, int yoffset, int width, int height, uint format, int imageSize, nint data);
+		private delegate void glCompressedTextureSubImage3DDelegate(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, int imageSize, nint data);
 		private delegate void glCopyTextureSubImage1DDelegate(uint texture, int level, int xoffset, int x, int y, int width);
 		private delegate void glCopyTextureSubImage2DDelegate(uint texture, int level, int xoffset, int yoffset, int x, int y, int width, int height);
 		private delegate void glCopyTextureSubImage3DDelegate(uint texture, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
@@ -2444,8 +2444,8 @@ namespace Arqan
 		private delegate void glTextureParameterivDelegate(uint texture, uint pname, int[] param);
 		private delegate void glGenerateTextureMipmapDelegate(uint texture);
 		private delegate void glBindTextureUnitDelegate(uint unit, uint texture);
-		private delegate void glGetTextureImageDelegate(uint texture, int level, uint format, uint type, int bufSize, IntPtr pixels);
-		private delegate void glGetCompressedTextureImageDelegate(uint texture, int level, int bufSize, IntPtr pixels);
+		private delegate void glGetTextureImageDelegate(uint texture, int level, uint format, uint type, int bufSize, nint pixels);
+		private delegate void glGetCompressedTextureImageDelegate(uint texture, int level, int bufSize, nint pixels);
 		private delegate void glGetTextureLevelParameterfvDelegate(uint texture, int level, uint pname, float[] @params);
 		private delegate void glGetTextureLevelParameterivDelegate(uint texture, int level, uint pname, int[] @params);
 		private delegate void glGetTextureParameterfvDelegate(uint texture, uint pname, float[] @params);
@@ -2456,8 +2456,8 @@ namespace Arqan
 		private delegate void glDisableVertexArrayAttribDelegate(uint vaobj, uint index);
 		private delegate void glEnableVertexArrayAttribDelegate(uint vaobj, uint index);
 		private delegate void glVertexArrayElementBufferDelegate(uint vaobj, uint buffer);
-		private delegate void glVertexArrayVertexBufferDelegate(uint vaobj, uint bindingindex, uint buffer, IntPtr offset, int stride);
-		private delegate void glVertexArrayVertexBuffersDelegate(uint vaobj, uint first, int count, uint[] buffers, IntPtr offsets, int[] strides);
+		private delegate void glVertexArrayVertexBufferDelegate(uint vaobj, uint bindingindex, uint buffer, nint offset, int stride);
+		private delegate void glVertexArrayVertexBuffersDelegate(uint vaobj, uint first, int count, uint[] buffers, nint offsets, int[] strides);
 		private delegate void glVertexArrayAttribBindingDelegate(uint vaobj, uint attribindex, uint bindingindex);
 		private delegate void glVertexArrayAttribFormatDelegate(uint vaobj, uint attribindex, int size, uint type, bool normalized, uint relativeoffset);
 		private delegate void glVertexArrayAttribIFormatDelegate(uint vaobj, uint attribindex, int size, uint type, uint relativeoffset);
@@ -2469,21 +2469,21 @@ namespace Arqan
 		private delegate void glCreateSamplersDelegate(int n, uint[] samplers);
 		private delegate void glCreateProgramPipelinesDelegate(int n, uint[] pipelines);
 		private delegate void glCreateQueriesDelegate(uint target, int n, uint[] ids);
-		private delegate void glGetQueryBufferObjecti64vDelegate(uint id, uint buffer, uint pname, IntPtr offset);
-		private delegate void glGetQueryBufferObjectivDelegate(uint id, uint buffer, uint pname, IntPtr offset);
-		private delegate void glGetQueryBufferObjectui64vDelegate(uint id, uint buffer, uint pname, IntPtr offset);
-		private delegate void glGetQueryBufferObjectuivDelegate(uint id, uint buffer, uint pname, IntPtr offset);
+		private delegate void glGetQueryBufferObjecti64vDelegate(uint id, uint buffer, uint pname, nint offset);
+		private delegate void glGetQueryBufferObjectivDelegate(uint id, uint buffer, uint pname, nint offset);
+		private delegate void glGetQueryBufferObjectui64vDelegate(uint id, uint buffer, uint pname, nint offset);
+		private delegate void glGetQueryBufferObjectuivDelegate(uint id, uint buffer, uint pname, nint offset);
 		private delegate void glMemoryBarrierByRegionDelegate(uint barriers);
-		private delegate void glGetTextureSubImageDelegate(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, uint type, int bufSize, IntPtr pixels);
-		private delegate void glGetCompressedTextureSubImageDelegate(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int bufSize, IntPtr pixels);
+		private delegate void glGetTextureSubImageDelegate(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, uint type, int bufSize, nint pixels);
+		private delegate void glGetCompressedTextureSubImageDelegate(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int bufSize, nint pixels);
 		private delegate uint glGetGraphicsResetStatusDelegate();
-		private delegate void glGetnCompressedTexImageDelegate(uint target, int lod, int bufSize, IntPtr pixels);
-		private delegate void glGetnTexImageDelegate(uint target, int level, uint format, uint type, int bufSize, IntPtr pixels);
+		private delegate void glGetnCompressedTexImageDelegate(uint target, int lod, int bufSize, nint pixels);
+		private delegate void glGetnTexImageDelegate(uint target, int level, uint format, uint type, int bufSize, nint pixels);
 		private delegate void glGetnUniformdvDelegate(uint program, uint location, int bufSize, double[] @params);
 		private delegate void glGetnUniformfvDelegate(uint program, uint location, int bufSize, float[] @params);
 		private delegate void glGetnUniformivDelegate(uint program, uint location, int bufSize, int[] @params);
 		private delegate void glGetnUniformuivDelegate(uint program, uint location, int bufSize, uint[] @params);
-		private delegate void glReadnPixelsDelegate(int x, int y, int width, int height, uint format, uint type, int bufSize, IntPtr data);
+		private delegate void glReadnPixelsDelegate(int x, int y, int width, int height, uint format, uint type, int bufSize, nint data);
 		private delegate void glGetnMapdvDelegate(uint target, uint query, int bufSize, double[] v);
 		private delegate void glGetnMapfvDelegate(uint target, uint query, int bufSize, float[] v);
 		private delegate void glGetnMapivDelegate(uint target, uint query, int bufSize, int[] v);
@@ -2491,11 +2491,11 @@ namespace Arqan
 		private delegate void glGetnPixelMapuivDelegate(uint map, int bufSize, uint[] values);
 		private delegate void glGetnPixelMapusvDelegate(uint map, int bufSize, ushort[] values);
 		private delegate void glGetnPolygonStippleDelegate(int bufSize, byte[] pattern);
-		private delegate void glGetnColorTableDelegate(uint target, uint format, uint type, int bufSize, IntPtr table);
-		private delegate void glGetnConvolutionFilterDelegate(uint target, uint format, uint type, int bufSize, IntPtr image);
-		private delegate void glGetnSeparableFilterDelegate(uint target, uint format, uint type, int rowBufSize, IntPtr row, int columnBufSize, IntPtr column, IntPtr span);
-		private delegate void glGetnHistogramDelegate(uint target, bool reset, uint format, uint type, int bufSize, IntPtr values);
-		private delegate void glGetnMinmaxDelegate(uint target, bool reset, uint format, uint type, int bufSize, IntPtr values);
+		private delegate void glGetnColorTableDelegate(uint target, uint format, uint type, int bufSize, nint table);
+		private delegate void glGetnConvolutionFilterDelegate(uint target, uint format, uint type, int bufSize, nint image);
+		private delegate void glGetnSeparableFilterDelegate(uint target, uint format, uint type, int rowBufSize, nint row, int columnBufSize, nint column, nint span);
+		private delegate void glGetnHistogramDelegate(uint target, bool reset, uint format, uint type, int bufSize, nint values);
+		private delegate void glGetnMinmaxDelegate(uint target, bool reset, uint format, uint type, int bufSize, nint values);
 		private delegate void glTextureBarrierDelegate();
 		
         #endregion
@@ -2527,9 +2527,9 @@ namespace Arqan
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
 		public static extern void glTexParameteriv(uint target, uint pname, uint[] @params);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
-		public static extern void glTexImage1D(uint target, int level, uint internalformat, int width, int border, uint format, uint type, IntPtr pixels);
+		public static extern void glTexImage1D(uint target, int level, uint internalformat, int width, int border, uint format, uint type, nint pixels);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
-		public static extern void glTexImage2D(uint target, int level, uint internalformat, int width, int height, int border, uint format, uint type, IntPtr pixels);
+		public static extern void glTexImage2D(uint target, int level, uint internalformat, int width, int height, int border, uint format, uint type, nint pixels);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
 		public static extern void glDrawBuffer(uint buf);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
@@ -2571,7 +2571,7 @@ namespace Arqan
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
 		public static extern void glReadBuffer(uint src);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
-		public static extern void glReadPixels(float x, float y, float width, float height, uint format, uint type, IntPtr pixels);
+		public static extern void glReadPixels(float x, float y, float width, float height, uint format, uint type, nint pixels);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
 		public static extern void glGetBooleanv(uint pname, bool[] data);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
@@ -2583,7 +2583,7 @@ namespace Arqan
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
 		public static extern void glGetIntegerv(uint pname, int[] data);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
-		public static extern void glGetTexImage(uint target, int level, uint format, uint type, IntPtr pixels);
+		public static extern void glGetTexImage(uint target, int level, uint format, uint type, nint pixels);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
 		public static extern void glGetTexParameterfv(uint target, uint pname, float[] @params);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
@@ -2605,7 +2605,7 @@ namespace Arqan
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
 		public static extern void glCallList(uint list);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
-		public static extern void glCallLists(int n, uint type, IntPtr lists);
+		public static extern void glCallLists(int n, uint type, nint lists);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
 		public static extern void glDeleteLists(uint list, int range);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
@@ -3045,7 +3045,7 @@ namespace Arqan
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
 		public static extern void glCopyPixels(int x, int y, int width, int height, uint type);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
-		public static extern void glDrawPixels(int width, int height, uint format, uint type, IntPtr pixels);
+		public static extern void glDrawPixels(int width, int height, uint format, uint type, nint pixels);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
 		public static extern void glGetClipPlane(uint plane, double[] equation);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
@@ -3117,9 +3117,9 @@ namespace Arqan
         [DllImport(XWGL.LIBGL, SetLastError = true)]
 		public static extern void glDrawArrays(uint mode, int first, int count);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
-		public static extern void glDrawElements(uint mode, int count, uint type, IntPtr indices);
+		public static extern void glDrawElements(uint mode, int count, uint type, nint indices);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
-		public static extern void glGetPointerv(uint pname, IntPtr @params);
+		public static extern void glGetPointerv(uint pname, nint @params);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
 		public static extern void glPolygonOffset(float factor, float units);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
@@ -3131,9 +3131,9 @@ namespace Arqan
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
 		public static extern void glCopyTexSubImage2D(uint target, int level, int xoffset, int yoffset, int x, int y, int width, int height);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
-		public static extern void glTexSubImage1D(uint target, int level, int xoffset, int width, uint format, uint type, IntPtr pixels);
+		public static extern void glTexSubImage1D(uint target, int level, int xoffset, int width, uint format, uint type, nint pixels);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
-		public static extern void glTexSubImage2D(uint target, int level, int xoffset, int yoffset, int width, int height, uint format, uint type, IntPtr pixels);
+		public static extern void glTexSubImage2D(uint target, int level, int xoffset, int yoffset, int width, int height, uint format, uint type, nint pixels);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
 		public static extern void glBindTexture(uint target, uint texture);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
@@ -3145,23 +3145,23 @@ namespace Arqan
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
 		public static extern void glArrayElement(int i);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
-		public static extern void glColorPointer(int size, uint type, int stride, IntPtr pointer);
+		public static extern void glColorPointer(int size, uint type, int stride, nint pointer);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
 		public static extern void glDisableClientState(uint array);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
-		public static extern void glEdgeFlagPointer(int stride, IntPtr pointer);
+		public static extern void glEdgeFlagPointer(int stride, nint pointer);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
 		public static extern void glEnableClientState(uint array);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
-		public static extern void glIndexPointer(uint type, int stride, IntPtr pointer);
+		public static extern void glIndexPointer(uint type, int stride, nint pointer);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
-		public static extern void glInterleavedArrays(uint format, int stride, IntPtr pointer);
+		public static extern void glInterleavedArrays(uint format, int stride, nint pointer);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
-		public static extern void glNormalPointer(uint type, int stride, IntPtr pointer);
+		public static extern void glNormalPointer(uint type, int stride, nint pointer);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
-		public static extern void glTexCoordPointer(int size, uint type, int stride, IntPtr pointer);
+		public static extern void glTexCoordPointer(int size, uint type, int stride, nint pointer);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
-		public static extern void glVertexPointer(int size, uint type, int stride, IntPtr pointer);
+		public static extern void glVertexPointer(int size, uint type, int stride, nint pointer);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
 		public static extern bool glAreTexturesResident(int n, uint[] textures, bool[] residences);
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
@@ -3175,17 +3175,17 @@ namespace Arqan
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
 		public static extern void glPushClientAttrib(uint mask);
 
-        public static void glDrawRangeElements(uint mode, uint start, uint end, int count, uint type, IntPtr indices)
+        public static void glDrawRangeElements(uint mode, uint start, uint end, int count, uint type, nint indices)
 		{
 			XWGL.GetDelegateFor<glDrawRangeElementsDelegate>()(mode, start, end, count, type, indices);
 		}
 		
-		public static void glTexImage3D(uint target, int level, int internalformat, int width, int height, int depth, int border, uint format, uint type, IntPtr pixels)
+		public static void glTexImage3D(uint target, int level, int internalformat, int width, int height, int depth, int border, uint format, uint type, nint pixels)
 		{
 			XWGL.GetDelegateFor<glTexImage3DDelegate>()(target, level, internalformat, width, height, depth, border, format, type, pixels);
 		}
 		
-		public static void glTexSubImage3D(uint target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, uint type, IntPtr pixels)
+		public static void glTexSubImage3D(uint target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, uint type, nint pixels)
 		{
 			XWGL.GetDelegateFor<glTexSubImage3DDelegate>()(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 		}
@@ -3205,37 +3205,37 @@ namespace Arqan
 			XWGL.GetDelegateFor<glSampleCoverageDelegate>()(value, invert);
 		}
 		
-		public static void glCompressedTexImage3D(uint target, int level, uint internalformat, int width, int height, int depth, int border, int imageSize, IntPtr data)
+		public static void glCompressedTexImage3D(uint target, int level, uint internalformat, int width, int height, int depth, int border, int imageSize, nint data)
 		{
 			XWGL.GetDelegateFor<glCompressedTexImage3DDelegate>()(target, level, internalformat, width, height, depth, border, imageSize, data);
 		}
 		
-		public static void glCompressedTexImage2D(uint target, int level, uint internalformat, int width, int height, int border, int imageSize, IntPtr data)
+		public static void glCompressedTexImage2D(uint target, int level, uint internalformat, int width, int height, int border, int imageSize, nint data)
 		{
 			XWGL.GetDelegateFor<glCompressedTexImage2DDelegate>()(target, level, internalformat, width, height, border, imageSize, data);
 		}
 		
-		public static void glCompressedTexImage1D(uint target, int level, uint internalformat, int width, int border, int imageSize, IntPtr data)
+		public static void glCompressedTexImage1D(uint target, int level, uint internalformat, int width, int border, int imageSize, nint data)
 		{
 			XWGL.GetDelegateFor<glCompressedTexImage1DDelegate>()(target, level, internalformat, width, border, imageSize, data);
 		}
 		
-		public static void glCompressedTexSubImage3D(uint target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, int imageSize, IntPtr data)
+		public static void glCompressedTexSubImage3D(uint target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, int imageSize, nint data)
 		{
 			XWGL.GetDelegateFor<glCompressedTexSubImage3DDelegate>()(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 		}
 		
-		public static void glCompressedTexSubImage2D(uint target, int level, int xoffset, int yoffset, int width, int height, uint format, int imageSize, IntPtr data)
+		public static void glCompressedTexSubImage2D(uint target, int level, int xoffset, int yoffset, int width, int height, uint format, int imageSize, nint data)
 		{
 			XWGL.GetDelegateFor<glCompressedTexSubImage2DDelegate>()(target, level, xoffset, yoffset, width, height, format, imageSize, data);
 		}
 		
-		public static void glCompressedTexSubImage1D(uint target, int level, int xoffset, int width, uint format, int imageSize, IntPtr data)
+		public static void glCompressedTexSubImage1D(uint target, int level, int xoffset, int width, uint format, int imageSize, nint data)
 		{
 			XWGL.GetDelegateFor<glCompressedTexSubImage1DDelegate>()(target, level, xoffset, width, format, imageSize, data);
 		}
 		
-		public static void glGetCompressedTexImage(uint target, int level, IntPtr img)
+		public static void glGetCompressedTexImage(uint target, int level, nint img)
 		{
 			XWGL.GetDelegateFor<glGetCompressedTexImageDelegate>()(target, level, img);
 		}
@@ -3435,7 +3435,7 @@ namespace Arqan
 			XWGL.GetDelegateFor<glMultiDrawArraysDelegate>()(mode, first, count, drawcount);
 		}
 		
-		public static void glMultiDrawElements(uint mode, int[] count, uint type, IntPtr indices, int drawcount)
+		public static void glMultiDrawElements(uint mode, int[] count, uint type, nint indices, int drawcount)
 		{
 			XWGL.GetDelegateFor<glMultiDrawElementsDelegate>()(mode, count, type, indices, drawcount);
 		}
@@ -3480,7 +3480,7 @@ namespace Arqan
 			XWGL.GetDelegateFor<glFogCoorddvDelegate>()(coord);
 		}
 		
-		public static void glFogCoordPointer(uint type, int stride, IntPtr pointer)
+		public static void glFogCoordPointer(uint type, int stride, nint pointer)
 		{
 			XWGL.GetDelegateFor<glFogCoordPointerDelegate>()(type, stride, pointer);
 		}
@@ -3565,7 +3565,7 @@ namespace Arqan
 			XWGL.GetDelegateFor<glSecondaryColor3usvDelegate>()(v);
 		}
 		
-		public static void glSecondaryColorPointer(int size, uint type, int stride, IntPtr pointer)
+		public static void glSecondaryColorPointer(int size, uint type, int stride, nint pointer)
 		{
 			XWGL.GetDelegateFor<glSecondaryColorPointerDelegate>()(size, type, stride, pointer);
 		}
@@ -3745,7 +3745,7 @@ namespace Arqan
 			XWGL.GetDelegateFor<glBufferSubDataDelegate>()(target, offset, size, data);
 		}
 		
-		public static void glGetBufferSubData(uint target, IntPtr offset, IntPtr size, IntPtr data)
+		public static void glGetBufferSubData(uint target, nint offset, nint size, nint data)
 		{
 			XWGL.GetDelegateFor<glGetBufferSubDataDelegate>()(target, offset, size, data);
 		}
@@ -3765,7 +3765,7 @@ namespace Arqan
 			XWGL.GetDelegateFor<glGetBufferParameterivDelegate>()(target, pname, @params);
 		}
 		
-		public static void glGetBufferPointerv(uint target, uint pname, IntPtr @params)
+		public static void glGetBufferPointerv(uint target, uint pname, nint @params)
 		{
 			XWGL.GetDelegateFor<glGetBufferPointervDelegate>()(target, pname, @params);
 		}
@@ -3920,7 +3920,7 @@ namespace Arqan
 			XWGL.GetDelegateFor<glGetVertexAttribivDelegate>()(index, pname, @params);
 		}
 		
-		public static void glGetVertexAttribPointerv(uint index, uint pname, IntPtr pointer)
+		public static void glGetVertexAttribPointerv(uint index, uint pname, nint pointer)
 		{
 			XWGL.GetDelegateFor<glGetVertexAttribPointervDelegate>()(index, pname, pointer);
 		}
@@ -4230,7 +4230,7 @@ namespace Arqan
 			XWGL.GetDelegateFor<glVertexAttrib4usvDelegate>()(index, v);
 		}
 		
-		public static void glVertexAttribPointer(uint index, int size, uint type, bool normalized, int stride, IntPtr pointer)
+		public static void glVertexAttribPointer(uint index, int size, uint type, bool normalized, int stride, nint pointer)
 		{
 			XWGL.GetDelegateFor<glVertexAttribPointerDelegate>()(index, size, type, normalized, stride, pointer);
 		}
@@ -4305,7 +4305,7 @@ namespace Arqan
 			XWGL.GetDelegateFor<glEndTransformFeedbackDelegate>()();
 		}
 		
-		public static void glBindBufferRange(uint target, uint index, uint buffer, IntPtr offset, IntPtr size)
+		public static void glBindBufferRange(uint target, uint index, uint buffer, nint offset, nint size)
 		{
 			XWGL.GetDelegateFor<glBindBufferRangeDelegate>()(target, index, buffer, offset, size);
 		}
@@ -4340,7 +4340,7 @@ namespace Arqan
 			XWGL.GetDelegateFor<glEndConditionalRenderDelegate>()();
 		}
 		
-		public static void glVertexAttribIPointer(uint index, int size, uint type, int stride, IntPtr pointer)
+		public static void glVertexAttribIPointer(uint index, int size, uint type, int stride, nint pointer)
 		{
 			XWGL.GetDelegateFor<glVertexAttribIPointerDelegate>()(index, size, type, stride, pointer);
 		}
@@ -4650,12 +4650,12 @@ namespace Arqan
 			XWGL.GetDelegateFor<glFramebufferTextureLayerDelegate>()(target, attachment, texture, level, layer);
 		}
 		
-		public static void glMapBufferRange(uint target, IntPtr offset, IntPtr length, uint access)
+		public static void glMapBufferRange(uint target, nint offset, nint length, uint access)
 		{
 			XWGL.GetDelegateFor<glMapBufferRangeDelegate>()(target, offset, length, access);
 		}
 		
-		public static void glFlushMappedBufferRange(uint target, IntPtr offset, IntPtr length)
+		public static void glFlushMappedBufferRange(uint target, nint offset, nint length)
 		{
 			XWGL.GetDelegateFor<glFlushMappedBufferRangeDelegate>()(target, offset, length);
 		}
@@ -4680,22 +4680,22 @@ namespace Arqan
 			return (bool)XWGL.GetDelegateFor<glIsVertexArrayDelegate>()(array);
 		}
 
-        public static void glDrawElementsBaseVertex(uint mode, int count, uint type, IntPtr indices, int basevertex)
+        public static void glDrawElementsBaseVertex(uint mode, int count, uint type, nint indices, int basevertex)
 		{
 			XWGL.GetDelegateFor<glDrawElementsBaseVertexDelegate>()(mode, count, type, indices, basevertex);
 		}
 		
-		public static void glDrawRangeElementsBaseVertex(uint mode, uint start, uint end, int count, uint type, IntPtr indices, int basevertex)
+		public static void glDrawRangeElementsBaseVertex(uint mode, uint start, uint end, int count, uint type, nint indices, int basevertex)
 		{
 			XWGL.GetDelegateFor<glDrawRangeElementsBaseVertexDelegate>()(mode, start, end, count, type, indices, basevertex);
 		}
 		
-		public static void glDrawElementsInstancedBaseVertex(uint mode, int count, uint type, IntPtr indices, int instancecount, int basevertex)
+		public static void glDrawElementsInstancedBaseVertex(uint mode, int count, uint type, nint indices, int instancecount, int basevertex)
 		{
 			XWGL.GetDelegateFor<glDrawElementsInstancedBaseVertexDelegate>()(mode, count, type, indices, instancecount, basevertex);
 		}
 		
-		public static void glMultiDrawElementsBaseVertex(uint mode, int[] count, uint type, IntPtr indices, int drawcount, int[] basevertex)
+		public static void glMultiDrawElementsBaseVertex(uint mode, int[] count, uint type, nint indices, int drawcount, int[] basevertex)
 		{
 			XWGL.GetDelegateFor<glMultiDrawElementsBaseVertexDelegate>()(mode, count, type, indices, drawcount, basevertex);
 		}
@@ -4705,27 +4705,27 @@ namespace Arqan
 			XWGL.GetDelegateFor<glProvokingVertexDelegate>()(mode);
 		}
 		
-		public static IntPtr glFenceSync(uint condition, uint flags)
+		public static nint glFenceSync(uint condition, uint flags)
 		{
-			return (IntPtr)XWGL.GetDelegateFor<glFenceSyncDelegate>()(condition, flags);
+			return (nint)XWGL.GetDelegateFor<glFenceSyncDelegate>()(condition, flags);
 		}
 		
-		public static bool glIsSync(IntPtr sync)
+		public static bool glIsSync(nint sync)
 		{
 			return (bool)XWGL.GetDelegateFor<glIsSyncDelegate>()(sync);
 		}
 		
-		public static void glDeleteSync(IntPtr sync)
+		public static void glDeleteSync(nint sync)
 		{
 			XWGL.GetDelegateFor<glDeleteSyncDelegate>()(sync);
 		}
 		
-		public static uint glClientWaitSync(IntPtr sync, uint flags, UInt64 timeout)
+		public static uint glClientWaitSync(nint sync, uint flags, UInt64 timeout)
 		{
 			return (uint)XWGL.GetDelegateFor<glClientWaitSyncDelegate>()(sync, flags, timeout);
 		}
 		
-		public static void glWaitSync(IntPtr sync, uint flags, UInt64 timeout)
+		public static void glWaitSync(nint sync, uint flags, UInt64 timeout)
 		{
 			XWGL.GetDelegateFor<glWaitSyncDelegate>()(sync, flags, timeout);
 		}
@@ -4735,7 +4735,7 @@ namespace Arqan
 			XWGL.GetDelegateFor<glGetInteger64vDelegate>()(pname, data);
 		}
 		
-		public static void glGetSynciv(IntPtr sync, uint pname, int bufSize, int[] length, int[] values)
+		public static void glGetSynciv(nint sync, uint pname, int bufSize, int[] length, int[] values)
 		{
 			XWGL.GetDelegateFor<glGetSyncivDelegate>()(sync, pname, bufSize, length, values);
 		}
@@ -4780,7 +4780,7 @@ namespace Arqan
 			XWGL.GetDelegateFor<glDrawArraysInstancedDelegate>()(mode, first, count, instancecount);
 		}
 		
-		public static void glDrawElementsInstanced(uint mode, int count, uint type, IntPtr indices, int instancecount)
+		public static void glDrawElementsInstanced(uint mode, int count, uint type, nint indices, int instancecount)
 		{
 			XWGL.GetDelegateFor<glDrawElementsInstancedDelegate>()(mode, count, type, indices, instancecount);
 		}
@@ -4795,7 +4795,7 @@ namespace Arqan
 			XWGL.GetDelegateFor<glPrimitiveRestartIndexDelegate>()(index);
 		}
 		
-		public static void glCopyBufferSubData(uint readTarget, uint writeTarget, IntPtr readOffset, IntPtr writeOffset, IntPtr size)
+		public static void glCopyBufferSubData(uint readTarget, uint writeTarget, nint readOffset, nint writeOffset, nint size)
 		{
 			XWGL.GetDelegateFor<glCopyBufferSubDataDelegate>()(readTarget, writeTarget, readOffset, writeOffset, size);
 		}
@@ -5150,12 +5150,12 @@ namespace Arqan
 			XWGL.GetDelegateFor<glBlendFuncSeparateiDelegate>()(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 		}
 		
-		public static void glDrawArraysIndirect(uint mode, IntPtr indirect)
+		public static void glDrawArraysIndirect(uint mode, nint indirect)
 		{
 			XWGL.GetDelegateFor<glDrawArraysIndirectDelegate>()(mode, indirect);
 		}
 		
-		public static void glDrawElementsIndirect(uint mode, uint type, IntPtr indirect)
+		public static void glDrawElementsIndirect(uint mode, uint type, nint indirect)
 		{
 			XWGL.GetDelegateFor<glDrawElementsIndirectDelegate>()(mode, type, indirect);
 		}
@@ -5360,7 +5360,7 @@ namespace Arqan
 			XWGL.GetDelegateFor<glReleaseShaderCompilerDelegate>()();
 		}
 		
-		public static void glShaderBinary(int count, uint[] shaders, uint binaryformat, IntPtr binary, int length)
+		public static void glShaderBinary(int count, uint[] shaders, uint binaryformat, nint binary, int length)
 		{
 			XWGL.GetDelegateFor<glShaderBinaryDelegate>()(count, shaders, binaryformat, binary, length);
 		}
@@ -5380,12 +5380,12 @@ namespace Arqan
 			XWGL.GetDelegateFor<glClearDepthfDelegate>()(d);
 		}
 		
-		public static void glGetProgramBinary(uint program, int bufSize, int[] length, uint[] binaryFormat, IntPtr binary)
+		public static void glGetProgramBinary(uint program, int bufSize, int[] length, uint[] binaryFormat, nint binary)
 		{
 			XWGL.GetDelegateFor<glGetProgramBinaryDelegate>()(program, bufSize, length, binaryFormat, binary);
 		}
 		
-		public static void glProgramBinary(uint program, uint binaryFormat, IntPtr binary, int length)
+		public static void glProgramBinary(uint program, uint binaryFormat, nint binary, int length)
 		{
 			XWGL.GetDelegateFor<glProgramBinaryDelegate>()(program, binaryFormat, binary, length);
 		}
@@ -5735,7 +5735,7 @@ namespace Arqan
 			XWGL.GetDelegateFor<glVertexAttribL4dvDelegate>()(index, v);
 		}
 		
-		public static void glVertexAttribLPointer(uint index, int size, uint type, int stride, IntPtr pointer)
+		public static void glVertexAttribLPointer(uint index, int size, uint type, int stride, nint pointer)
 		{
 			XWGL.GetDelegateFor<glVertexAttribLPointerDelegate>()(index, size, type, stride, pointer);
 		}
@@ -5800,12 +5800,12 @@ namespace Arqan
 			XWGL.GetDelegateFor<glDrawArraysInstancedBaseInstanceDelegate>()(mode, first, count, instancecount, baseinstance);
 		}
 		
-		public static void glDrawElementsInstancedBaseInstance(uint mode, int count, uint type, IntPtr indices, int instancecount, uint baseinstance)
+		public static void glDrawElementsInstancedBaseInstance(uint mode, int count, uint type, nint indices, int instancecount, uint baseinstance)
 		{
 			XWGL.GetDelegateFor<glDrawElementsInstancedBaseInstanceDelegate>()(mode, count, type, indices, instancecount, baseinstance);
 		}
 		
-		public static void glDrawElementsInstancedBaseVertexBaseInstance(uint mode, int count, uint type, IntPtr indices, int instancecount, int basevertex, uint baseinstance)
+		public static void glDrawElementsInstancedBaseVertexBaseInstance(uint mode, int count, uint type, nint indices, int instancecount, int basevertex, uint baseinstance)
 		{
 			XWGL.GetDelegateFor<glDrawElementsInstancedBaseVertexBaseInstanceDelegate>()(mode, count, type, indices, instancecount, basevertex, baseinstance);
 		}
@@ -5855,12 +5855,12 @@ namespace Arqan
 			XWGL.GetDelegateFor<glDrawTransformFeedbackStreamInstancedDelegate>()(mode, id, stream, instancecount);
 		}
 
-        public static void glClearBufferData(uint target, uint internalformat, uint format, uint type, IntPtr data)
+        public static void glClearBufferData(uint target, uint internalformat, uint format, uint type, nint data)
 		{
 			XWGL.GetDelegateFor<glClearBufferDataDelegate>()(target, internalformat, format, type, data);
 		}
 		
-		public static void glClearBufferSubData(uint target, uint internalformat, IntPtr offset, IntPtr size, uint format, uint type, IntPtr data)
+		public static void glClearBufferSubData(uint target, uint internalformat, nint offset, nint size, uint format, uint type, nint data)
 		{
 			XWGL.GetDelegateFor<glClearBufferSubDataDelegate>()(target, internalformat, offset, size, format, type, data);
 		}
@@ -5870,7 +5870,7 @@ namespace Arqan
 			XWGL.GetDelegateFor<glDispatchComputeDelegate>()(num_groups_x, num_groups_y, num_groups_z);
 		}
 		
-		public static void glDispatchComputeIndirect(IntPtr indirect)
+		public static void glDispatchComputeIndirect(nint indirect)
 		{
 			XWGL.GetDelegateFor<glDispatchComputeIndirectDelegate>()(indirect);
 		}
@@ -5905,7 +5905,7 @@ namespace Arqan
 			XWGL.GetDelegateFor<glInvalidateTexImageDelegate>()(texture, level);
 		}
 		
-		public static void glInvalidateBufferSubData(uint buffer, IntPtr offset, IntPtr length)
+		public static void glInvalidateBufferSubData(uint buffer, nint offset, nint length)
 		{
 			XWGL.GetDelegateFor<glInvalidateBufferSubDataDelegate>()(buffer, offset, length);
 		}
@@ -5925,12 +5925,12 @@ namespace Arqan
 			XWGL.GetDelegateFor<glInvalidateSubFramebufferDelegate>()(target, numAttachments, attachments, x, y, width, height);
 		}
 		
-		public static void glMultiDrawArraysIndirect(uint mode, IntPtr indirect, int drawcount, int stride)
+		public static void glMultiDrawArraysIndirect(uint mode, nint indirect, int drawcount, int stride)
 		{
 			XWGL.GetDelegateFor<glMultiDrawArraysIndirectDelegate>()(mode, indirect, drawcount, stride);
 		}
 		
-		public static void glMultiDrawElementsIndirect(uint mode, uint type, IntPtr indirect, int drawcount, int stride)
+		public static void glMultiDrawElementsIndirect(uint mode, uint type, nint indirect, int drawcount, int stride)
 		{
 			XWGL.GetDelegateFor<glMultiDrawElementsIndirectDelegate>()(mode, type, indirect, drawcount, stride);
 		}
@@ -5970,7 +5970,7 @@ namespace Arqan
 			XWGL.GetDelegateFor<glShaderStorageBlockBindingDelegate>()(program, storageBlockIndex, storageBlockBinding);
 		}
 		
-		public static void glTexBufferRange(uint target, uint internalformat, uint buffer, IntPtr offset, IntPtr size)
+		public static void glTexBufferRange(uint target, uint internalformat, uint buffer, nint offset, nint size)
 		{
 			XWGL.GetDelegateFor<glTexBufferRangeDelegate>()(target, internalformat, buffer, offset, size);
 		}
@@ -5990,7 +5990,7 @@ namespace Arqan
 			XWGL.GetDelegateFor<glTextureViewDelegate>()(texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers);
 		}
 		
-		public static void glBindVertexBuffer(uint bindingindex, uint buffer, IntPtr offset, int stride)
+		public static void glBindVertexBuffer(uint bindingindex, uint buffer, nint offset, int stride)
 		{
 			XWGL.GetDelegateFor<glBindVertexBufferDelegate>()(bindingindex, buffer, offset, stride);
 		}
@@ -6030,7 +6030,7 @@ namespace Arqan
 			XWGL.GetDelegateFor<glDebugMessageInsertDelegate>()(source, type, id, severity, length, buf);
 		}
 		
-		public static void glDebugMessageCallback(IntPtr callback, IntPtr userParam)
+		public static void glDebugMessageCallback(nint callback, nint userParam)
 		{
 			XWGL.GetDelegateFor<glDebugMessageCallbackDelegate>()(callback, userParam);
 		}
@@ -6060,27 +6060,27 @@ namespace Arqan
 			XWGL.GetDelegateFor<glGetObjectLabelDelegate>()(identifier, name, bufSize, length, label);
 		}
 		
-		public static void glObjectPtrLabel(IntPtr ptr, int length, char[] label)
+		public static void glObjectPtrLabel(nint ptr, int length, char[] label)
 		{
 			XWGL.GetDelegateFor<glObjectPtrLabelDelegate>()(ptr, length, label);
 		}
 		
-		public static void glGetObjectPtrLabel(IntPtr ptr, int bufSize, int[] length, char[] label)
+		public static void glGetObjectPtrLabel(nint ptr, int bufSize, int[] length, char[] label)
 		{
 			XWGL.GetDelegateFor<glGetObjectPtrLabelDelegate>()(ptr, bufSize, length, label);
 		}
 		
-		public static void glBufferStorage(uint target, IntPtr size, IntPtr data, uint flags)
+		public static void glBufferStorage(uint target, nint size, nint data, uint flags)
 		{
 			XWGL.GetDelegateFor<glBufferStorageDelegate>()(target, size, data, flags);
 		}
 		
-		public static void glClearTexImage(uint texture, int level, uint format, uint type, IntPtr data)
+		public static void glClearTexImage(uint texture, int level, uint format, uint type, nint data)
 		{
 			XWGL.GetDelegateFor<glClearTexImageDelegate>()(texture, level, format, type, data);
 		}
 		
-		public static void glClearTexSubImage(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, uint type, IntPtr data)
+		public static void glClearTexSubImage(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, uint type, nint data)
 		{
 			XWGL.GetDelegateFor<glClearTexSubImageDelegate>()(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
 		}
@@ -6090,7 +6090,7 @@ namespace Arqan
 			XWGL.GetDelegateFor<glBindBuffersBaseDelegate>()(target, first, count, buffers);
 		}
 		
-		public static void glBindBuffersRange(uint target, uint first, int count, uint[] buffers, IntPtr offsets, IntPtr sizes)
+		public static void glBindBuffersRange(uint target, uint first, int count, uint[] buffers, nint offsets, nint sizes)
 		{
 			XWGL.GetDelegateFor<glBindBuffersRangeDelegate>()(target, first, count, buffers, offsets, sizes);
 		}
@@ -6110,7 +6110,7 @@ namespace Arqan
 			XWGL.GetDelegateFor<glBindImageTexturesDelegate>()(first, count, textures);
 		}
 		
-		public static void glBindVertexBuffers(uint first, int count, uint[] buffers, IntPtr offsets, int[] strides)
+		public static void glBindVertexBuffers(uint first, int count, uint[] buffers, nint offsets, int[] strides)
 		{
 			XWGL.GetDelegateFor<glBindVertexBuffersDelegate>()(first, count, buffers, offsets, strides);
 		}
@@ -6130,7 +6130,7 @@ namespace Arqan
 			XWGL.GetDelegateFor<glTransformFeedbackBufferBaseDelegate>()(xfb, index, buffer);
 		}
 		
-		public static void glTransformFeedbackBufferRange(uint xfb, uint index, uint buffer, IntPtr offset, IntPtr size)
+		public static void glTransformFeedbackBufferRange(uint xfb, uint index, uint buffer, nint offset, nint size)
 		{
 			XWGL.GetDelegateFor<glTransformFeedbackBufferRangeDelegate>()(xfb, index, buffer, offset, size);
 		}
@@ -6155,32 +6155,32 @@ namespace Arqan
 			XWGL.GetDelegateFor<glCreateBuffersDelegate>()(n, buffers);
 		}
 		
-		public static void glNamedBufferStorage(uint buffer, IntPtr size, IntPtr data, uint flags)
+		public static void glNamedBufferStorage(uint buffer, nint size, nint data, uint flags)
 		{
 			XWGL.GetDelegateFor<glNamedBufferStorageDelegate>()(buffer, size, data, flags);
 		}
 		
-		public static void glNamedBufferData(uint buffer, IntPtr size, IntPtr data, uint usage)
+		public static void glNamedBufferData(uint buffer, nint size, nint data, uint usage)
 		{
 			XWGL.GetDelegateFor<glNamedBufferDataDelegate>()(buffer, size, data, usage);
 		}
 		
-		public static void glNamedBufferSubData(uint buffer, IntPtr offset, IntPtr size, IntPtr data)
+		public static void glNamedBufferSubData(uint buffer, nint offset, nint size, nint data)
 		{
 			XWGL.GetDelegateFor<glNamedBufferSubDataDelegate>()(buffer, offset, size, data);
 		}
 		
-		public static void glCopyNamedBufferSubData(uint readBuffer, uint writeBuffer, IntPtr readOffset, IntPtr writeOffset, IntPtr size)
+		public static void glCopyNamedBufferSubData(uint readBuffer, uint writeBuffer, nint readOffset, nint writeOffset, nint size)
 		{
 			XWGL.GetDelegateFor<glCopyNamedBufferSubDataDelegate>()(readBuffer, writeBuffer, readOffset, writeOffset, size);
 		}
 		
-		public static void glClearNamedBufferData(uint buffer, uint internalformat, uint format, uint type, IntPtr data)
+		public static void glClearNamedBufferData(uint buffer, uint internalformat, uint format, uint type, nint data)
 		{
 			XWGL.GetDelegateFor<glClearNamedBufferDataDelegate>()(buffer, internalformat, format, type, data);
 		}
 		
-		public static void glClearNamedBufferSubData(uint buffer, uint internalformat, IntPtr offset, IntPtr size, uint format, uint type, IntPtr data)
+		public static void glClearNamedBufferSubData(uint buffer, uint internalformat, nint offset, nint size, uint format, uint type, nint data)
 		{
 			XWGL.GetDelegateFor<glClearNamedBufferSubDataDelegate>()(buffer, internalformat, offset, size, format, type, data);
 		}
@@ -6190,7 +6190,7 @@ namespace Arqan
 			XWGL.GetDelegateFor<glMapNamedBufferDelegate>()(buffer, access);
 		}
 		
-		public static void glMapNamedBufferRange(uint buffer, IntPtr offset, IntPtr length, uint access)
+		public static void glMapNamedBufferRange(uint buffer, nint offset, nint length, uint access)
 		{
 			XWGL.GetDelegateFor<glMapNamedBufferRangeDelegate>()(buffer, offset, length, access);
 		}
@@ -6200,7 +6200,7 @@ namespace Arqan
 			return (bool)XWGL.GetDelegateFor<glUnmapNamedBufferDelegate>()(buffer);
 		}
 		
-		public static void glFlushMappedNamedBufferRange(uint buffer, IntPtr offset, IntPtr length)
+		public static void glFlushMappedNamedBufferRange(uint buffer, nint offset, nint length)
 		{
 			XWGL.GetDelegateFor<glFlushMappedNamedBufferRangeDelegate>()(buffer, offset, length);
 		}
@@ -6215,12 +6215,12 @@ namespace Arqan
 			XWGL.GetDelegateFor<glGetNamedBufferParameteri64vDelegate>()(buffer, pname, @params);
 		}
 		
-		public static void glGetNamedBufferPointerv(uint buffer, uint pname, IntPtr @params)
+		public static void glGetNamedBufferPointerv(uint buffer, uint pname, nint @params)
 		{
 			XWGL.GetDelegateFor<glGetNamedBufferPointervDelegate>()(buffer, pname, @params);
 		}
 		
-		public static void glGetNamedBufferSubData(uint buffer, IntPtr offset, IntPtr size, IntPtr data)
+		public static void glGetNamedBufferSubData(uint buffer, nint offset, nint size, nint data)
 		{
 			XWGL.GetDelegateFor<glGetNamedBufferSubDataDelegate>()(buffer, offset, size, data);
 		}
@@ -6345,7 +6345,7 @@ namespace Arqan
 			XWGL.GetDelegateFor<glTextureBufferDelegate>()(texture, internalformat, buffer);
 		}
 		
-		public static void glTextureBufferRange(uint texture, uint internalformat, uint buffer, IntPtr offset, IntPtr size)
+		public static void glTextureBufferRange(uint texture, uint internalformat, uint buffer, nint offset, nint size)
 		{
 			XWGL.GetDelegateFor<glTextureBufferRangeDelegate>()(texture, internalformat, buffer, offset, size);
 		}
@@ -6375,32 +6375,32 @@ namespace Arqan
 			XWGL.GetDelegateFor<glTextureStorage3DMultisampleDelegate>()(texture, samples, internalformat, width, height, depth, fixedsamplelocations);
 		}
 		
-		public static void glTextureSubImage1D(uint texture, int level, int xoffset, int width, uint format, uint type, IntPtr pixels)
+		public static void glTextureSubImage1D(uint texture, int level, int xoffset, int width, uint format, uint type, nint pixels)
 		{
 			XWGL.GetDelegateFor<glTextureSubImage1DDelegate>()(texture, level, xoffset, width, format, type, pixels);
 		}
 		
-		public static void glTextureSubImage2D(uint texture, int level, int xoffset, int yoffset, int width, int height, uint format, uint type, IntPtr pixels)
+		public static void glTextureSubImage2D(uint texture, int level, int xoffset, int yoffset, int width, int height, uint format, uint type, nint pixels)
 		{
 			XWGL.GetDelegateFor<glTextureSubImage2DDelegate>()(texture, level, xoffset, yoffset, width, height, format, type, pixels);
 		}
 		
-		public static void glTextureSubImage3D(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, uint type, IntPtr pixels)
+		public static void glTextureSubImage3D(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, uint type, nint pixels)
 		{
 			XWGL.GetDelegateFor<glTextureSubImage3DDelegate>()(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 		}
 		
-		public static void glCompressedTextureSubImage1D(uint texture, int level, int xoffset, int width, uint format, int imageSize, IntPtr data)
+		public static void glCompressedTextureSubImage1D(uint texture, int level, int xoffset, int width, uint format, int imageSize, nint data)
 		{
 			XWGL.GetDelegateFor<glCompressedTextureSubImage1DDelegate>()(texture, level, xoffset, width, format, imageSize, data);
 		}
 		
-		public static void glCompressedTextureSubImage2D(uint texture, int level, int xoffset, int yoffset, int width, int height, uint format, int imageSize, IntPtr data)
+		public static void glCompressedTextureSubImage2D(uint texture, int level, int xoffset, int yoffset, int width, int height, uint format, int imageSize, nint data)
 		{
 			XWGL.GetDelegateFor<glCompressedTextureSubImage2DDelegate>()(texture, level, xoffset, yoffset, width, height, format, imageSize, data);
 		}
 		
-		public static void glCompressedTextureSubImage3D(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, int imageSize, IntPtr data)
+		public static void glCompressedTextureSubImage3D(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, int imageSize, nint data)
 		{
 			XWGL.GetDelegateFor<glCompressedTextureSubImage3DDelegate>()(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 		}
@@ -6460,12 +6460,12 @@ namespace Arqan
 			XWGL.GetDelegateFor<glBindTextureUnitDelegate>()(unit, texture);
 		}
 		
-		public static void glGetTextureImage(uint texture, int level, uint format, uint type, int bufSize, IntPtr pixels)
+		public static void glGetTextureImage(uint texture, int level, uint format, uint type, int bufSize, nint pixels)
 		{
 			XWGL.GetDelegateFor<glGetTextureImageDelegate>()(texture, level, format, type, bufSize, pixels);
 		}
 		
-		public static void glGetCompressedTextureImage(uint texture, int level, int bufSize, IntPtr pixels)
+		public static void glGetCompressedTextureImage(uint texture, int level, int bufSize, nint pixels)
 		{
 			XWGL.GetDelegateFor<glGetCompressedTextureImageDelegate>()(texture, level, bufSize, pixels);
 		}
@@ -6520,12 +6520,12 @@ namespace Arqan
 			XWGL.GetDelegateFor<glVertexArrayElementBufferDelegate>()(vaobj, buffer);
 		}
 		
-		public static void glVertexArrayVertexBuffer(uint vaobj, uint bindingindex, uint buffer, IntPtr offset, int stride)
+		public static void glVertexArrayVertexBuffer(uint vaobj, uint bindingindex, uint buffer, nint offset, int stride)
 		{
 			XWGL.GetDelegateFor<glVertexArrayVertexBufferDelegate>()(vaobj, bindingindex, buffer, offset, stride);
 		}
 		
-		public static void glVertexArrayVertexBuffers(uint vaobj, uint first, int count, uint[] buffers, IntPtr offsets, int[] strides)
+		public static void glVertexArrayVertexBuffers(uint vaobj, uint first, int count, uint[] buffers, nint offsets, int[] strides)
 		{
 			XWGL.GetDelegateFor<glVertexArrayVertexBuffersDelegate>()(vaobj, first, count, buffers, offsets, strides);
 		}
@@ -6585,22 +6585,22 @@ namespace Arqan
 			XWGL.GetDelegateFor<glCreateQueriesDelegate>()(target, n, ids);
 		}
 		
-		public static void glGetQueryBufferObjecti64v(uint id, uint buffer, uint pname, IntPtr offset)
+		public static void glGetQueryBufferObjecti64v(uint id, uint buffer, uint pname, nint offset)
 		{
 			XWGL.GetDelegateFor<glGetQueryBufferObjecti64vDelegate>()(id, buffer, pname, offset);
 		}
 		
-		public static void glGetQueryBufferObjectiv(uint id, uint buffer, uint pname, IntPtr offset)
+		public static void glGetQueryBufferObjectiv(uint id, uint buffer, uint pname, nint offset)
 		{
 			XWGL.GetDelegateFor<glGetQueryBufferObjectivDelegate>()(id, buffer, pname, offset);
 		}
 		
-		public static void glGetQueryBufferObjectui64v(uint id, uint buffer, uint pname, IntPtr offset)
+		public static void glGetQueryBufferObjectui64v(uint id, uint buffer, uint pname, nint offset)
 		{
 			XWGL.GetDelegateFor<glGetQueryBufferObjectui64vDelegate>()(id, buffer, pname, offset);
 		}
 		
-		public static void glGetQueryBufferObjectuiv(uint id, uint buffer, uint pname, IntPtr offset)
+		public static void glGetQueryBufferObjectuiv(uint id, uint buffer, uint pname, nint offset)
 		{
 			XWGL.GetDelegateFor<glGetQueryBufferObjectuivDelegate>()(id, buffer, pname, offset);
 		}
@@ -6610,12 +6610,12 @@ namespace Arqan
 			XWGL.GetDelegateFor<glMemoryBarrierByRegionDelegate>()(barriers);
 		}
 		
-		public static void glGetTextureSubImage(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, uint type, int bufSize, IntPtr pixels)
+		public static void glGetTextureSubImage(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, uint type, int bufSize, nint pixels)
 		{
 			XWGL.GetDelegateFor<glGetTextureSubImageDelegate>()(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, bufSize, pixels);
 		}
 		
-		public static void glGetCompressedTextureSubImage(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int bufSize, IntPtr pixels)
+		public static void glGetCompressedTextureSubImage(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int bufSize, nint pixels)
 		{
 			XWGL.GetDelegateFor<glGetCompressedTextureSubImageDelegate>()(texture, level, xoffset, yoffset, zoffset, width, height, depth, bufSize, pixels);
 		}
@@ -6625,12 +6625,12 @@ namespace Arqan
 			return (uint)XWGL.GetDelegateFor<glGetGraphicsResetStatusDelegate>()();
 		}
 		
-		public static void glGetnCompressedTexImage(uint target, int lod, int bufSize, IntPtr pixels)
+		public static void glGetnCompressedTexImage(uint target, int lod, int bufSize, nint pixels)
 		{
 			XWGL.GetDelegateFor<glGetnCompressedTexImageDelegate>()(target, lod, bufSize, pixels);
 		}
 		
-		public static void glGetnTexImage(uint target, int level, uint format, uint type, int bufSize, IntPtr pixels)
+		public static void glGetnTexImage(uint target, int level, uint format, uint type, int bufSize, nint pixels)
 		{
 			XWGL.GetDelegateFor<glGetnTexImageDelegate>()(target, level, format, type, bufSize, pixels);
 		}
@@ -6655,7 +6655,7 @@ namespace Arqan
 			XWGL.GetDelegateFor<glGetnUniformuivDelegate>()(program, location, bufSize, @params);
 		}
 		
-		public static void glReadnPixels(int x, int y, int width, int height, uint format, uint type, int bufSize, IntPtr data)
+		public static void glReadnPixels(int x, int y, int width, int height, uint format, uint type, int bufSize, nint data)
 		{
 			XWGL.GetDelegateFor<glReadnPixelsDelegate>()(x, y, width, height, format, type, bufSize, data);
 		}
@@ -6695,27 +6695,27 @@ namespace Arqan
 			XWGL.GetDelegateFor<glGetnPolygonStippleDelegate>()(bufSize, pattern);
 		}
 		
-		public static void glGetnColorTable(uint target, uint format, uint type, int bufSize, IntPtr table)
+		public static void glGetnColorTable(uint target, uint format, uint type, int bufSize, nint table)
 		{
 			XWGL.GetDelegateFor<glGetnColorTableDelegate>()(target, format, type, bufSize, table);
 		}
 		
-		public static void glGetnConvolutionFilter(uint target, uint format, uint type, int bufSize, IntPtr image)
+		public static void glGetnConvolutionFilter(uint target, uint format, uint type, int bufSize, nint image)
 		{
 			XWGL.GetDelegateFor<glGetnConvolutionFilterDelegate>()(target, format, type, bufSize, image);
 		}
 		
-		public static void glGetnSeparableFilter(uint target, uint format, uint type, int rowBufSize, IntPtr row, int columnBufSize, IntPtr column, IntPtr span)
+		public static void glGetnSeparableFilter(uint target, uint format, uint type, int rowBufSize, nint row, int columnBufSize, nint column, nint span)
 		{
 			XWGL.GetDelegateFor<glGetnSeparableFilterDelegate>()(target, format, type, rowBufSize, row, columnBufSize, column, span);
 		}
 		
-		public static void glGetnHistogram(uint target, bool reset, uint format, uint type, int bufSize, IntPtr values)
+		public static void glGetnHistogram(uint target, bool reset, uint format, uint type, int bufSize, nint values)
 		{
 			XWGL.GetDelegateFor<glGetnHistogramDelegate>()(target, reset, format, type, bufSize, values);
 		}
 		
-		public static void glGetnMinmax(uint target, bool reset, uint format, uint type, int bufSize, IntPtr values)
+		public static void glGetnMinmax(uint target, bool reset, uint format, uint type, int bufSize, nint values)
 		{
 			XWGL.GetDelegateFor<glGetnMinmaxDelegate>()(target, reset, format, type, bufSize, values);
 		}

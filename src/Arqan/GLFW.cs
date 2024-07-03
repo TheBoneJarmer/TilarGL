@@ -256,52 +256,52 @@ namespace Arqan
         public delegate void GLFWerrorfun(int errorcode, string description);
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate void GLFWwindowposfun(IntPtr window, int posx, int posy);
+        public delegate void GLFWwindowposfun(nint window, int posx, int posy);
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate void GLFWwindowsizefun(IntPtr window, int width, int height);
+        public delegate void GLFWwindowsizefun(nint window, int width, int height);
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate void GLFWwindowclosefun(IntPtr window);
+        public delegate void GLFWwindowclosefun(nint window);
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate void GLFWwindowrefreshfun(IntPtr window);
+        public delegate void GLFWwindowrefreshfun(nint window);
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate void GLFWwindowfocusfun(IntPtr window, int focused);
+        public delegate void GLFWwindowfocusfun(nint window, int focused);
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate void GLFWwindowiconifyfun(IntPtr window, int iconified);
+        public delegate void GLFWwindowiconifyfun(nint window, int iconified);
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate void GLFWframebuffersizefun(IntPtr window, int width, int height);
+        public delegate void GLFWframebuffersizefun(nint window, int width, int height);
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate void GLFWmousebuttonfun(IntPtr window, int button, int action, int mods);
+        public delegate void GLFWmousebuttonfun(nint window, int button, int action, int mods);
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate void GLFWcursorposfun(IntPtr window, double mousex, double mousey);
+        public delegate void GLFWcursorposfun(nint window, double mousex, double mousey);
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate void GLFWcursorenterfun(IntPtr window, int entered);
+        public delegate void GLFWcursorenterfun(nint window, int entered);
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate void GLFWscrollfun(IntPtr window, double xoffset, double yoffset);
+        public delegate void GLFWscrollfun(nint window, double xoffset, double yoffset);
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate void GLFWkeyfun(IntPtr window, int key, int scancode, int action, int mods);
+        public delegate void GLFWkeyfun(nint window, int key, int scancode, int action, int mods);
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate void GLFWcharfun(IntPtr window, uint codepoint);
+        public delegate void GLFWcharfun(nint window, uint codepoint);
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate void GLFWcharmodsfun(IntPtr window, int codepoint, int mods);
+        public delegate void GLFWcharmodsfun(nint window, int codepoint, int mods);
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate void GLFWdropfun(IntPtr window, int count, string[] paths);
+        public delegate void GLFWdropfun(nint window, int count, string[] paths);
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate void GLFWmonitorfun(IntPtr window, int monitorevent);
+        public delegate void GLFWmonitorfun(nint window, int monitorevent);
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void GLFWjoystickfun(int jid, int ev);
@@ -314,7 +314,7 @@ namespace Arqan
         {
             public int width;
             public int height;
-            public IntPtr pixels;
+            public nint pixels;
         }
         
         #endregion
@@ -322,47 +322,47 @@ namespace Arqan
         #region Commands
 
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr glfwGetWindowUserPointer(IntPtr window);
+        public static extern nint glfwGetWindowUserPointer(nint window);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwGetVersion(ref int major, ref int minor, ref int rev);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void glfwGetMonitorPos(IntPtr monitor, ref int xpos, ref int ypos);
+        public static extern void glfwGetMonitorPos(nint monitor, ref int xpos, ref int ypos);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void glfwGetMonitorPhysicalSize(IntPtr monitor, ref int widthMM, ref int heightMM);
+        public static extern void glfwGetMonitorPhysicalSize(nint monitor, ref int widthMM, ref int heightMM);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void glfwGetWindowPos(IntPtr window, ref int xpos, ref int ypos);
+        public static extern void glfwGetWindowPos(nint window, ref int xpos, ref int ypos);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void glfwGetWindowSize(IntPtr window, ref int width, ref int height);
+        public static extern void glfwGetWindowSize(nint window, ref int width, ref int height);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void glfwGetFramebufferSize(IntPtr window, ref int width, ref int height);
+        public static extern void glfwGetFramebufferSize(nint window, ref int width, ref int height);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void glfwGetWindowFrameSize(IntPtr window, ref int left, ref int top, ref int right, ref int bottom);
+        public static extern void glfwGetWindowFrameSize(nint window, ref int left, ref int top, ref int right, ref int bottom);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void glfwGetCursorPos(IntPtr window, ref double xpos, ref double ypos);
+        public static extern void glfwGetCursorPos(nint window, ref double xpos, ref double ypos);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void glfwSetGamma(IntPtr monitor, float gamma);
+        public static extern void glfwSetGamma(nint monitor, float gamma);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void glfwSetGammaRamp(IntPtr monitor, long ramp);
+        public static extern void glfwSetGammaRamp(nint monitor, long ramp);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void glfwSetWindowShouldClose(IntPtr window, int value);
+        public static extern void glfwSetWindowShouldClose(nint window, int value);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void glfwSetWindowTitle(IntPtr window, string title);
+        public static extern void glfwSetWindowTitle(nint window, string title);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void glfwSetWindowPos(IntPtr window, int xpos, int ypos);
+        public static extern void glfwSetWindowPos(nint window, int xpos, int ypos);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void glfwSetWindowSize(IntPtr window, int width, int height);
+        public static extern void glfwSetWindowSize(nint window, int width, int height);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void glfwSetWindowUserPointer(IntPtr window, IntPtr pointer);
+        public static extern void glfwSetWindowUserPointer(nint window, nint pointer);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void glfwSetCursorPos(IntPtr window, double xpos, double ypos);
+        public static extern void glfwSetCursorPos(nint window, double xpos, double ypos);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void glfwSetCursor(IntPtr window, long cursor);
+        public static extern void glfwSetCursor(nint window, long cursor);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void glfwSetClipboardString(IntPtr window, string @string);
+        public static extern void glfwSetClipboardString(nint window, string @string);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwSetTime(double time);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void glfwSetInputMode(IntPtr window, int mode, int value);
+        public static extern void glfwSetInputMode(nint window, int mode, int value);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwTerminate();
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
@@ -370,15 +370,18 @@ namespace Arqan
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwWindowHint(int target, int hint);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void glfwDestroyWindow(IntPtr window);
+        public static extern void glfwDestroyWindow(nint window);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void glfwIconifyWindow(IntPtr window);
+        public static extern void glfwIconifyWindow(nint window);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void glfwRestoreWindow(IntPtr window);
+        public static extern void glfwRestoreWindow(nint window);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void glfwShowWindow(IntPtr window);
+        public static extern void glfwShowWindow(nint window);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void glfwHideWindow(IntPtr window);
+        public static extern void glfwHideWindow(nint window);
+
+        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void glfwMaximizeWindow(nint window);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwPollEvents();
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
@@ -388,51 +391,51 @@ namespace Arqan
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwDestroyCursor(long cursor);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void glfwMakeContextCurrent(IntPtr window);
+        public static extern void glfwMakeContextCurrent(nint window);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void glfwSwapBuffers(IntPtr window);
+        public static extern void glfwSwapBuffers(nint window);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwSwapInterval(int interval);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern int glfwInit();
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int glfwWindowShouldClose(IntPtr window);
+        public static extern int glfwWindowShouldClose(nint window);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int glfwGetWindowAttrib(IntPtr window, int attrib);
+        public static extern int glfwGetWindowAttrib(nint window, int attrib);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int glfwGetInputMode(IntPtr window, int mode);
+        public static extern int glfwGetInputMode(nint window, int mode);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int glfwGetKey(IntPtr window, int key);
+        public static extern int glfwGetKey(nint window, int key);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int glfwGetMouseButton(IntPtr window, int button);
+        public static extern int glfwGetMouseButton(nint window, int button);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern int glfwJoystickPresent(int joy);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern int glfwExtensionSupported(string extension);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr glfwGetJoystickButtons(int joy, out int count);
+        public static extern nint glfwGetJoystickButtons(int joy, out int count);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern string glfwGetVersionString();
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern string glfwGetMonitorName(IntPtr monitor);
+        public static extern string glfwGetMonitorName(nint monitor);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern string glfwGetJoystickName(int joy);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern string glfwGetClipboardString(IntPtr window);
+        public static extern string glfwGetClipboardString(nint window);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern long[] glfwGetVideoModes(IntPtr monitor, ref int count);
+        public static extern long[] glfwGetVideoModes(nint monitor, ref int count);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern long[] glfwGetMonitors(int count);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern long glfwGetVideoMode(IntPtr monitor);
+        public static extern long glfwGetVideoMode(nint monitor);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern long glfwGetGammaRamp(IntPtr monitor);
+        public static extern long glfwGetGammaRamp(nint monitor);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr glfwGetPrimaryMonitor();
+        public static extern nint glfwGetPrimaryMonitor();
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr glfwCreateWindow(int width, int height, byte[] title, IntPtr monitor, IntPtr share);
+        public static extern nint glfwCreateWindow(int width, int height, byte[] title, nint monitor, nint share);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr glfwGetWindowMonitor(IntPtr window);
+        public static extern nint glfwGetWindowMonitor(nint window);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern long glfwCreateCursor(long image, int xhot, int yhot);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
@@ -442,13 +445,13 @@ namespace Arqan
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern long glfwGetProcAddress(string procname);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr glfwGetJoystickAxes(int joy, out int count);
+        public static extern nint glfwGetJoystickAxes(int joy, out int count);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr glfwGetJoystickHats(int joy, out int count);
+        public static extern nint glfwGetJoystickHats(int joy, out int count);
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern double glfwGetTime();
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void glfwSetWindowIcon(IntPtr window, int count, GLFWImage[] images);
+        public static extern void glfwSetWindowIcon(nint window, int count, GLFWImage[] images);
 
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern GLFWerrorfun glfwSetErrorCallback(GLFWerrorfun cbfun);
@@ -457,49 +460,49 @@ namespace Arqan
         public static extern GLFWmonitorfun glfwSetMonitorCallback(GLFWmonitorfun cbfun);
 
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern GLFWwindowposfun glfwSetWindowPosCallback(IntPtr window, GLFWwindowposfun cbfun);
+        public static extern GLFWwindowposfun glfwSetWindowPosCallback(nint window, GLFWwindowposfun cbfun);
 
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern GLFWwindowsizefun glfwSetWindowSizeCallback(IntPtr window, GLFWwindowsizefun cbfun);
+        public static extern GLFWwindowsizefun glfwSetWindowSizeCallback(nint window, GLFWwindowsizefun cbfun);
 
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern GLFWwindowclosefun glfwSetWindowCloseCallback(IntPtr window, GLFWwindowclosefun cbfun);
+        public static extern GLFWwindowclosefun glfwSetWindowCloseCallback(nint window, GLFWwindowclosefun cbfun);
 
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern GLFWwindowrefreshfun glfwSetWindowRefreshCallback(IntPtr window, GLFWwindowrefreshfun cbfun);
+        public static extern GLFWwindowrefreshfun glfwSetWindowRefreshCallback(nint window, GLFWwindowrefreshfun cbfun);
 
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern GLFWwindowfocusfun glfwSetWindowFocusCallback(IntPtr window, GLFWwindowfocusfun cbfun);
+        public static extern GLFWwindowfocusfun glfwSetWindowFocusCallback(nint window, GLFWwindowfocusfun cbfun);
 
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern GLFWwindowiconifyfun glfwSetWindowIconifyCallback(IntPtr window, GLFWwindowiconifyfun cbfun);
+        public static extern GLFWwindowiconifyfun glfwSetWindowIconifyCallback(nint window, GLFWwindowiconifyfun cbfun);
 
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern GLFWframebuffersizefun glfwSetFramebufferSizeCallback(IntPtr window, GLFWframebuffersizefun cbfun);
+        public static extern GLFWframebuffersizefun glfwSetFramebufferSizeCallback(nint window, GLFWframebuffersizefun cbfun);
 
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern GLFWkeyfun glfwSetKeyCallback(IntPtr window, GLFWkeyfun cbfun);
+        public static extern GLFWkeyfun glfwSetKeyCallback(nint window, GLFWkeyfun cbfun);
 
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern GLFWcharfun glfwSetCharCallback(IntPtr window, GLFWcharfun cbfun);
+        public static extern GLFWcharfun glfwSetCharCallback(nint window, GLFWcharfun cbfun);
 
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern GLFWcharmodsfun glfwSetCharModsCallback(IntPtr window, GLFWcharmodsfun cbfun);
+        public static extern GLFWcharmodsfun glfwSetCharModsCallback(nint window, GLFWcharmodsfun cbfun);
 
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern GLFWmousebuttonfun glfwSetMouseButtonCallback(IntPtr window, GLFWmousebuttonfun cbfun);
+        public static extern GLFWmousebuttonfun glfwSetMouseButtonCallback(nint window, GLFWmousebuttonfun cbfun);
 
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern GLFWcursorposfun glfwSetCursorPosCallback(IntPtr window, GLFWcursorposfun cbfun);
+        public static extern GLFWcursorposfun glfwSetCursorPosCallback(nint window, GLFWcursorposfun cbfun);
 
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern GLFWcursorenterfun glfwSetCursorEnterCallback(IntPtr window, GLFWcursorenterfun cbfun);
+        public static extern GLFWcursorenterfun glfwSetCursorEnterCallback(nint window, GLFWcursorenterfun cbfun);
 
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern GLFWscrollfun glfwSetScrollCallback(IntPtr window, GLFWscrollfun cbfun);
+        public static extern GLFWscrollfun glfwSetScrollCallback(nint window, GLFWscrollfun cbfun);
 
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
-        public static extern GLFWdropfun glfwSetDropCallback(IntPtr window, GLFWdropfun cbfun);
+        public static extern GLFWdropfun glfwSetDropCallback(nint window, GLFWdropfun cbfun);
 
         [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern GLFWjoystickfun glfwSetJoystickCallback(GLFWjoystickfun cbfun);

@@ -11,14 +11,14 @@ namespace Arqan
 		public const string LIBGLFW = "glfw3.dll";
 
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
-		private static extern IntPtr wglGetProcAddress(string name);
+		private static extern nint wglGetProcAddress(string name);
 
 		#elif OSX
 		public const string LIBGL = "libGL.dylib";
 		public const string LIBGLFW = "libglfw.dylib";
 
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
-		private static extern IntPtr glXGetProcAddress(string name);
+		private static extern nint glXGetProcAddress(string name);
 
 
 		#else
@@ -27,7 +27,7 @@ namespace Arqan
 		public const string LIBGLFW = "libglfw.so";
 
 		[DllImport(XWGL.LIBGL, SetLastError = true)]
-		private static extern IntPtr glXGetProcAddress(string name);
+		private static extern nint glXGetProcAddress(string name);
 
 		#endif
 
@@ -49,7 +49,7 @@ namespace Arqan
 			return del as T;
 		}
 
-		public static IntPtr GetProcAddress(string name)
+		public static nint GetProcAddress(string name)
 		{
 			#if Windows
 

@@ -21,7 +21,7 @@ namespace Arqan.Example2
         private GLFW.GLFWkeyfun glfwKeyFunction;
         private GLFW.GLFWcharfun glfwCharFunction;
 
-        private IntPtr Handle { get; set; }
+        private nint Handle { get; set; }
 
         public int Width
         {
@@ -30,7 +30,7 @@ namespace Arqan.Example2
             {
                 width = value;
 
-                if (Handle != IntPtr.Zero)
+                if (Handle != nint.Zero)
                 {
                     GLFW.glfwSetWindowSize(Handle, width, height);
                 }
@@ -44,7 +44,7 @@ namespace Arqan.Example2
             {
                 height = value;
 
-                if (Handle != IntPtr.Zero)
+                if (Handle != nint.Zero)
                 {
                     GLFW.glfwSetWindowSize(Handle, width, height);
                 }
@@ -58,7 +58,7 @@ namespace Arqan.Example2
             {
                 title = value;
 
-                if (Handle != IntPtr.Zero)
+                if (Handle != nint.Zero)
                 {
                     GLFW.glfwSetWindowTitle(Handle, value);
                 }
@@ -107,9 +107,9 @@ namespace Arqan.Example2
 
         private void InitWindow(bool fullscreen)
         {
-            Handle = GLFW.glfwCreateWindow(Width, Height, Encoding.ASCII.GetBytes(Title), fullscreen ? GLFW.glfwGetPrimaryMonitor() : IntPtr.Zero, IntPtr.Zero);
+            Handle = GLFW.glfwCreateWindow(Width, Height, Encoding.ASCII.GetBytes(Title), fullscreen ? GLFW.glfwGetPrimaryMonitor() : nint.Zero, nint.Zero);
 
-            if (Handle == IntPtr.Zero)
+            if (Handle == nint.Zero)
             {
                 GLFW.glfwTerminate();
                 throw new Exception("Unable to create glfw window");
@@ -201,34 +201,34 @@ namespace Arqan.Example2
             throw new Exception($"{errorCode}: {description}");
         }
 
-        private void OnWindowSizeFunction(IntPtr windowHandle, int width, int height)
+        private void OnWindowSizeFunction(nint windowHandle, int width, int height)
         {
             this.width = width;
             this.height = height;
         }
 
-        private void OnWindowRefreshFunction(IntPtr windowHandle)
+        private void OnWindowRefreshFunction(nint windowHandle)
         {
         }
 
-        private void OnPositionFunction(IntPtr windowHandle, int x, int y)
+        private void OnPositionFunction(nint windowHandle, int x, int y)
         {
         }
 
-        private void OnWindowCloseFunction(IntPtr windowHandle)
+        private void OnWindowCloseFunction(nint windowHandle)
         {
         }
 
         /* INPUT FUNCTIONS */
-        private void OnCursorPositionFunction(IntPtr windowHandle, double x, double y)
+        private void OnCursorPositionFunction(nint windowHandle, double x, double y)
         {
         }
 
-        private void OnMouseButtonFunction(IntPtr windowHandle, int button, int action, int mods)
+        private void OnMouseButtonFunction(nint windowHandle, int button, int action, int mods)
         {
         }
 
-        private void OnKeyFunction(IntPtr windowHandle, int key, int scanCode, int action, int mods)
+        private void OnKeyFunction(nint windowHandle, int key, int scanCode, int action, int mods)
         {
             if (key == GLFW.GLFW_KEY_SPACE && action == GLFW.GLFW_PRESS)
             {
@@ -242,7 +242,7 @@ namespace Arqan.Example2
             }
         }
 
-        private void OnCharFunction(IntPtr windowHandle, uint codepoint)
+        private void OnCharFunction(nint windowHandle, uint codepoint)
         {
         }
     }
