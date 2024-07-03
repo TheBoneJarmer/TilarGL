@@ -153,6 +153,7 @@ namespace Arqan.Example2
 
         private void Loop()
         {
+            useDelta = true;
             var lastTime = GLFW.glfwGetTime();
             
             // Main loop
@@ -232,6 +233,7 @@ namespace Arqan.Example2
             if (key == GLFW.GLFW_KEY_SPACE && action == GLFW.GLFW_PRESS)
             {
                 useDelta = !useDelta;
+                Console.WriteLine("Use delta: " + useDelta);
             }
 
             if (key == GLFW.GLFW_KEY_ESCAPE && action == GLFW.GLFW_PRESS)
