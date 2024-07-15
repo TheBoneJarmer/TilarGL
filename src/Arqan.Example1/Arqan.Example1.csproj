@@ -1,17 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType Condition="'$(OS)' == 'UNIX'">Exe</OutputType>
     <OutputType Condition="'$(OS)' == 'Windows_NT'">WinExe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
+    <StartupObject>Arqan.Example1.Program</StartupObject>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
   </PropertyGroup>
-  
-  <ItemGroup Condition="'$(OS)' == 'UNIX'">
-    <PackageReference Include="Arqan.Linux" Version="2.3.3" />
-  </ItemGroup>
-  
-  <ItemGroup Condition="'$(OS)' == 'Windows_NT'">
-    <PackageReference Include="Arqan.Windows" Version="2.3.3" />
+
+  <ItemGroup>
+    <ProjectReference Include="..\Arqan\Arqan.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,11 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
-		
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
 	<PropertyGroup Condition="'$(OS)' == 'Windows_NT'">
 		<PackageId>Arqan.Windows</PackageId>
 		<Configurations>Debug;Release;x64</Configurations>
-        <DefineConstants>Windows</DefineConstants>
+		<DefineConstants>Windows</DefineConstants>
 	</PropertyGroup>
-	
+
 	<PropertyGroup Condition="$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))">
 		<PackageId>Arqan.Linux</PackageId>
 		<DefineConstants>Linux</DefineConstants>
@@ -15,28 +15,33 @@
 		<PackageId>Arqan.OSX</PackageId>
 		<DefineConstants>OSX</DefineConstants>
 	</PropertyGroup>
-	
+
 	<PropertyGroup>
-		<Version>2.3.6</Version>
+		<Version>2.4.0</Version>
 		<Authors>Ruben Labruyere</Authors>
 		<Company>Ruben Labruyere</Company>
-		<Description>Arqan is a .NET wrapper for OpenGL methods, enums and constants ranging from OpenGL1.0 to openGL4.4 as well as a wrapper for GLFW methods, enums and constants.
+		<Description>
+			Arqan is a .NET wrapper for OpenGL methods, enums and constants ranging from OpenGL1.0 to openGL4.4 as well as a wrapper for GLFW methods, enums and constants.
 		</Description>
 		<RepositoryUrl>https://github.com/TheBoneJarmer/arqan.git</RepositoryUrl>
 		<PackageTags>Arqan OpenGL GLFW</PackageTags>
 		<LangVersion>latest</LangVersion>
 	</PropertyGroup>
-	
+
 	<PropertyGroup>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<TargetFramework>netstandard2.1</TargetFramework>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Copyright>Ruben Labruyere</Copyright>
 	</PropertyGroup>
 
-	<ItemGroup Condition="'$(OS)' == 'Windows_NT'">
-		<Content Include="win-x64/glfw3.dll">
-            <Pack>True</Pack>
-			<PackagePath>lib/netstandard2.0</PackagePath>
-        </Content>
+	<ItemGroup>
+		<None Link="\%(Filename)%(Extension)" Include="lib\glfw3.dll">
+			<Pack>True</Pack>
+			<PackagePath>lib/netstandard2.1</PackagePath>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+			<CopyToPublishDirectory>Always</CopyToPublishDirectory>
+		</None>
 	</ItemGroup>
 
 </Project>
