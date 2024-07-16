@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Arqan.GLFW\Arqan.GLFW.csproj" />
     <ProjectReference Include="..\Arqan\Arqan.csproj" />
   </ItemGroup>
   

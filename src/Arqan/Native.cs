@@ -3,14 +3,14 @@ using System.Runtime.InteropServices;
 
 namespace Arqan
 {
-	public static class XWGL
+	public static class Native
 	{
 		#if Windows
 
 		public const string LIBGL = "opengl32.dll";
 		public const string LIBGLFW = "glfw3.dll";
 
-		[DllImport(XWGL.LIBGL, SetLastError = true)]
+		[DllImport(Native.LIBGL, SetLastError = true)]
 		private static extern nint wglGetProcAddress(string name);
 
 		#elif OSX
@@ -35,7 +35,7 @@ namespace Arqan
 		{
 			var delegateType = typeof(T);
 			var name = delegateType.Name.Replace("Delegate","");
-			var proc = XWGL.GetProcAddress(name);
+			var proc = Native.GetProcAddress(name);
 			var del = Marshal.GetDelegateForFunctionPointer(proc, delegateType);
 			
 			return del as T;
@@ -43,7 +43,7 @@ namespace Arqan
 		internal static T GetDelegateFor<T>(string name) where T : class
 		{
 			var delegateType = typeof(T);
-			var proc = XWGL.GetProcAddress(name);
+			var proc = Native.GetProcAddress(name);
 			var del = Marshal.GetDelegateForFunctionPointer(proc, delegateType);
 			
 			return del as T;

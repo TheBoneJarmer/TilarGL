@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup Condition="'$(OS)' == 'Windows_NT'">
+        <PackageId>Arqan.GLFW.Windows</PackageId>
+        <Configurations>Debug;Release;x64</Configurations>
+        <DefineConstants>Windows</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))">
+        <PackageId>Arqan.GLFW.Linux</PackageId>
+        <DefineConstants>Linux</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))">
+        <PackageId>Arqan.GLFW.OSX</PackageId>
+        <DefineConstants>OSX</DefineConstants>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <Nullable>enable</Nullable>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Link="\%(Filename)%(Extension)" Include="lib\glfw3.dll">
+            <Pack>True</Pack>
+            <PackagePath>lib/netstandard2.1</PackagePath>
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+            <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+        </None>
+    </ItemGroup>
+
+</Project>

@@ -1,16 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Runtime.InteropServices;
-using System.Security;
 
-namespace Arqan
+namespace Arqan.GLFW
 {
-    public unsafe static class GLFW
+    public static class GLFW
     {
-
         #region Constants
 
         public const int GLFW_VERSION_MAJOR = 3;
@@ -321,190 +314,190 @@ namespace Arqan
 
         #region Commands
 
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern nint glfwGetWindowUserPointer(nint window);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwGetVersion(ref int major, ref int minor, ref int rev);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwGetMonitorPos(nint monitor, ref int xpos, ref int ypos);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwGetMonitorPhysicalSize(nint monitor, ref int widthMM, ref int heightMM);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwGetWindowPos(nint window, ref int xpos, ref int ypos);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwGetWindowSize(nint window, ref int width, ref int height);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwGetFramebufferSize(nint window, ref int width, ref int height);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwGetWindowFrameSize(nint window, ref int left, ref int top, ref int right, ref int bottom);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwGetCursorPos(nint window, ref double xpos, ref double ypos);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwSetGamma(nint monitor, float gamma);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwSetGammaRamp(nint monitor, long ramp);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwSetWindowShouldClose(nint window, int value);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwSetWindowTitle(nint window, string title);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwSetWindowPos(nint window, int xpos, int ypos);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwSetWindowSize(nint window, int width, int height);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwSetWindowUserPointer(nint window, nint pointer);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwSetCursorPos(nint window, double xpos, double ypos);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwSetCursor(nint window, long cursor);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwSetClipboardString(nint window, string @string);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwSetTime(double time);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwSetInputMode(nint window, int mode, int value);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwTerminate();
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwDefaultWindowHints();
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwWindowHint(int target, int hint);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwDestroyWindow(nint window);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwIconifyWindow(nint window);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwRestoreWindow(nint window);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwShowWindow(nint window);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwHideWindow(nint window);
 
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwMaximizeWindow(nint window);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwPollEvents();
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwWaitEvents();
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwPostEmptyEvent();
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwDestroyCursor(long cursor);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwMakeContextCurrent(nint window);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwSwapBuffers(nint window);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwSwapInterval(int interval);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern int glfwInit();
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern int glfwWindowShouldClose(nint window);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern int glfwGetWindowAttrib(nint window, int attrib);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern int glfwGetInputMode(nint window, int mode);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern int glfwGetKey(nint window, int key);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern int glfwGetMouseButton(nint window, int button);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern int glfwJoystickPresent(int joy);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern int glfwExtensionSupported(string extension);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern nint glfwGetJoystickButtons(int joy, out int count);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern string glfwGetVersionString();
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern string glfwGetMonitorName(nint monitor);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern string glfwGetJoystickName(int joy);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern string glfwGetClipboardString(nint window);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern long[] glfwGetVideoModes(nint monitor, ref int count);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern long[] glfwGetMonitors(int count);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern long glfwGetVideoMode(nint monitor);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern long glfwGetGammaRamp(nint monitor);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern nint glfwGetPrimaryMonitor();
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern nint glfwCreateWindow(int width, int height, byte[] title, nint monitor, nint share);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern nint glfwGetWindowMonitor(nint window);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern long glfwCreateCursor(long image, int xhot, int yhot);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern long glfwCreateStandardCursor(int shape);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern long glfwGetCurrentContext();
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern long glfwGetProcAddress(string procname);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern nint glfwGetJoystickAxes(int joy, out int count);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern nint glfwGetJoystickHats(int joy, out int count);
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern double glfwGetTime();
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glfwSetWindowIcon(nint window, int count, GLFWImage[] images);
 
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern GLFWerrorfun glfwSetErrorCallback(GLFWerrorfun cbfun);
 
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern GLFWmonitorfun glfwSetMonitorCallback(GLFWmonitorfun cbfun);
 
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern GLFWwindowposfun glfwSetWindowPosCallback(nint window, GLFWwindowposfun cbfun);
 
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern GLFWwindowsizefun glfwSetWindowSizeCallback(nint window, GLFWwindowsizefun cbfun);
 
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern GLFWwindowclosefun glfwSetWindowCloseCallback(nint window, GLFWwindowclosefun cbfun);
 
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern GLFWwindowrefreshfun glfwSetWindowRefreshCallback(nint window, GLFWwindowrefreshfun cbfun);
 
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern GLFWwindowfocusfun glfwSetWindowFocusCallback(nint window, GLFWwindowfocusfun cbfun);
 
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern GLFWwindowiconifyfun glfwSetWindowIconifyCallback(nint window, GLFWwindowiconifyfun cbfun);
 
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern GLFWframebuffersizefun glfwSetFramebufferSizeCallback(nint window, GLFWframebuffersizefun cbfun);
 
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern GLFWkeyfun glfwSetKeyCallback(nint window, GLFWkeyfun cbfun);
 
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern GLFWcharfun glfwSetCharCallback(nint window, GLFWcharfun cbfun);
 
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern GLFWcharmodsfun glfwSetCharModsCallback(nint window, GLFWcharmodsfun cbfun);
 
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern GLFWmousebuttonfun glfwSetMouseButtonCallback(nint window, GLFWmousebuttonfun cbfun);
 
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern GLFWcursorposfun glfwSetCursorPosCallback(nint window, GLFWcursorposfun cbfun);
 
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern GLFWcursorenterfun glfwSetCursorEnterCallback(nint window, GLFWcursorenterfun cbfun);
 
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern GLFWscrollfun glfwSetScrollCallback(nint window, GLFWscrollfun cbfun);
 
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern GLFWdropfun glfwSetDropCallback(nint window, GLFWdropfun cbfun);
 
-        [DllImport(XWGL.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(Native.LIBGLFW, CallingConvention = CallingConvention.Cdecl)]
         public static extern GLFWjoystickfun glfwSetJoystickCallback(GLFWjoystickfun cbfun);
 
         #endregion

@@ -35,13 +35,4 @@
 		<Copyright>Ruben Labruyere</Copyright>
 	</PropertyGroup>
 
-	<ItemGroup>
-		<None Link="\%(Filename)%(Extension)" Include="lib\glfw3.dll">
-			<Pack>True</Pack>
-			<PackagePath>lib/netstandard2.1</PackagePath>
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-			<CopyToPublishDirectory>Always</CopyToPublishDirectory>
-		</None>
-	</ItemGroup>
-
 </Project>

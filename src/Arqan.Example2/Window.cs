@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Text;
 
+using static Arqan.GLFW.GLFW;
+
 namespace Arqan.Example2
 {
     public class Window
@@ -12,14 +14,14 @@ namespace Arqan.Example2
         private readonly Block[] blocks;
         private bool useDelta;
 
-        private GLFW.GLFWerrorfun glfwErrorFunction;
-        private GLFW.GLFWwindowsizefun glfwWindowSizeFunction;
-        private GLFW.GLFWwindowclosefun glfwWindowCloseFunction;
-        private GLFW.GLFWwindowrefreshfun glfwWindowRefreshFunction;
-        private GLFW.GLFWcursorposfun glfwCursorPosFunction;
-        private GLFW.GLFWmousebuttonfun glfwMouseButtonFunction;
-        private GLFW.GLFWkeyfun glfwKeyFunction;
-        private GLFW.GLFWcharfun glfwCharFunction;
+        private GLFWerrorfun glfwErrorFunction;
+        private GLFWwindowsizefun glfwWindowSizeFunction;
+        private GLFWwindowclosefun glfwWindowCloseFunction;
+        private GLFWwindowrefreshfun glfwWindowRefreshFunction;
+        private GLFWcursorposfun glfwCursorPosFunction;
+        private GLFWmousebuttonfun glfwMouseButtonFunction;
+        private GLFWkeyfun glfwKeyFunction;
+        private GLFWcharfun glfwCharFunction;
 
         private nint Handle { get; set; }
 
@@ -32,7 +34,7 @@ namespace Arqan.Example2
 
                 if (Handle != nint.Zero)
                 {
-                    GLFW.glfwSetWindowSize(Handle, width, height);
+                    glfwSetWindowSize(Handle, width, height);
                 }
             }
         }
@@ -46,7 +48,7 @@ namespace Arqan.Example2
 
                 if (Handle != nint.Zero)
                 {
-                    GLFW.glfwSetWindowSize(Handle, width, height);
+                    glfwSetWindowSize(Handle, width, height);
                 }
             }
         }
@@ -60,7 +62,7 @@ namespace Arqan.Example2
 
                 if (Handle != nint.Zero)
                 {
-                    GLFW.glfwSetWindowTitle(Handle, value);
+                    glfwSetWindowTitle(Handle, value);
                 }
             }
         }
@@ -94,12 +96,12 @@ namespace Arqan.Example2
 
         public void Close()
         {
-            GLFW.glfwSetWindowShouldClose(Handle, 1);
+            glfwSetWindowShouldClose(Handle, 1);
         }
 
         private void InitGLFW()
         {
-            if (GLFW.glfwInit() == 0)
+            if (glfwInit() == 0)
             {
                 throw new Exception("Unable to initialize glfw");
             }
@@ -107,15 +109,15 @@ namespace Arqan.Example2
 
         private void InitWindow(bool fullscreen)
         {
-            Handle = GLFW.glfwCreateWindow(Width, Height, Encoding.ASCII.GetBytes(Title), fullscreen ? GLFW.glfwGetPrimaryMonitor() : nint.Zero, nint.Zero);
+            Handle = glfwCreateWindow(Width, Height, Encoding.ASCII.GetBytes(Title), fullscreen ? glfwGetPrimaryMonitor() : nint.Zero, nint.Zero);
 
             if (Handle == nint.Zero)
             {
-                GLFW.glfwTerminate();
+                glfwTerminate();
                 throw new Exception("Unable to create glfw window");
             }
 
-            GLFW.glfwMakeContextCurrent(Handle);
+            glfwMakeContextCurrent(Handle);
         }
 
         private void InitEvents()
@@ -129,37 +131,37 @@ namespace Arqan.Example2
             glfwWindowRefreshFunction = OnWindowRefreshFunction;
             glfwWindowSizeFunction = OnWindowSizeFunction;
 
-            GLFW.glfwSetErrorCallback(glfwErrorFunction);
-            GLFW.glfwSetWindowSizeCallback(Handle, glfwWindowSizeFunction);
-            GLFW.glfwSetWindowCloseCallback(Handle, glfwWindowCloseFunction);
-            GLFW.glfwSetWindowRefreshCallback(Handle, glfwWindowRefreshFunction);
-            GLFW.glfwSetCursorPosCallback(Handle, glfwCursorPosFunction);
-            GLFW.glfwSetMouseButtonCallback(Handle, glfwMouseButtonFunction);
-            GLFW.glfwSetKeyCallback(Handle, glfwKeyFunction);
-            GLFW.glfwSetCharCallback(Handle, glfwCharFunction);
+            glfwSetErrorCallback(glfwErrorFunction);
+            glfwSetWindowSizeCallback(Handle, glfwWindowSizeFunction);
+            glfwSetWindowCloseCallback(Handle, glfwWindowCloseFunction);
+            glfwSetWindowRefreshCallback(Handle, glfwWindowRefreshFunction);
+            glfwSetCursorPosCallback(Handle, glfwCursorPosFunction);
+            glfwSetMouseButtonCallback(Handle, glfwMouseButtonFunction);
+            glfwSetKeyCallback(Handle, glfwKeyFunction);
+            glfwSetCharCallback(Handle, glfwCharFunction);
         }
 
         private void InitSettings(bool vsync)
         {
             if (vsync)
             {
-                GLFW.glfwSwapInterval(1);
+                glfwSwapInterval(1);
             }
             else
             {
-                GLFW.glfwSwapInterval(0);
+                glfwSwapInterval(0);
             }
         }
 
         private void Loop()
         {
             useDelta = true;
-            var lastTime = GLFW.glfwGetTime();
+            var lastTime = glfwGetTime();
             
             // Main loop
-            while (GLFW.glfwWindowShouldClose(Handle) == 0)
+            while (glfwWindowShouldClose(Handle) == 0)
             {
-                double currentTime = GLFW.glfwGetTime();
+                double currentTime = glfwGetTime();
                 double deltaTime = currentTime - lastTime;
                 lastTime = currentTime;
 
@@ -188,11 +190,11 @@ namespace Arqan.Example2
                     blocks[i].Render();
                 }
 
-                GLFW.glfwSwapBuffers(Handle);
-                GLFW.glfwPollEvents();
+                glfwSwapBuffers(Handle);
+                glfwPollEvents();
             }
 
-            GLFW.glfwDestroyWindow(Handle);
+            glfwDestroyWindow(Handle);
         }
 
         /* GENERAL FUNCTIONS */
@@ -230,15 +232,15 @@ namespace Arqan.Example2
 
         private void OnKeyFunction(nint windowHandle, int key, int scanCode, int action, int mods)
         {
-            if (key == GLFW.GLFW_KEY_SPACE && action == GLFW.GLFW_PRESS)
+            if (key == GLFW_KEY_SPACE && action == GLFW_PRESS)
             {
                 useDelta = !useDelta;
                 Console.WriteLine("Use delta: " + useDelta);
             }
 
-            if (key == GLFW.GLFW_KEY_ESCAPE && action == GLFW.GLFW_PRESS)
+            if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
             {
-                GLFW.glfwSetWindowShouldClose(windowHandle, 1);
+                glfwSetWindowShouldClose(windowHandle, 1);
             }
         }
 

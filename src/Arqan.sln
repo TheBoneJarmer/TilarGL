@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arqan.Example1", "Arqan.Exa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arqan.Example2", "Arqan.Example2\Arqan.Example2.csproj", "{EC3B5F5B-20BE-42E4-90C4-C75A58BE9280}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arqan.GLFW", "Arqan.GLFW\Arqan.GLFW.csproj", "{03D9FEA4-CDAD-4C11-96E1-853C01B051E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +36,12 @@ Global
 		{EC3B5F5B-20BE-42E4-90C4-C75A58BE9280}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EC3B5F5B-20BE-42E4-90C4-C75A58BE9280}.x64|Any CPU.ActiveCfg = Debug|Any CPU
 		{EC3B5F5B-20BE-42E4-90C4-C75A58BE9280}.x64|Any CPU.Build.0 = Debug|Any CPU
+		{03D9FEA4-CDAD-4C11-96E1-853C01B051E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03D9FEA4-CDAD-4C11-96E1-853C01B051E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03D9FEA4-CDAD-4C11-96E1-853C01B051E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03D9FEA4-CDAD-4C11-96E1-853C01B051E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03D9FEA4-CDAD-4C11-96E1-853C01B051E6}.x64|Any CPU.ActiveCfg = Debug|Any CPU
+		{03D9FEA4-CDAD-4C11-96E1-853C01B051E6}.x64|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
