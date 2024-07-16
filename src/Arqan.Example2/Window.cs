@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Text;
 
-using static Arqan.GLFW.GLFW;
+using static Arqan.GL;
+using static Arqan.Glfw.GLFW;
 
 namespace Arqan.Example2
 {
@@ -172,17 +173,17 @@ namespace Arqan.Example2
                 }
 
                 // Render a background and enable some stuff for 2d rendering with alpha
-                GL.glMatrixMode(GL.GL_PROJECTION);
-                GL.glLoadIdentity();
-                GL.glOrtho(0, width, height, 0, -1, 1);
-                GL.glMatrixMode(GL.GL_MODELVIEW);
-                GL.glLoadIdentity();
+                glMatrixMode(GL_PROJECTION);
+                glLoadIdentity();
+                glOrtho(0, width, height, 0, -1, 1);
+                glMatrixMode(GL_MODELVIEW);
+                glLoadIdentity();
 
-                GL.glEnable(GL.GL_BLEND);
-                GL.glBlendFunc(GL.GL_SRC_ALPHA, GL.GL_ONE_MINUS_SRC_ALPHA);
-                GL.glViewport(0, 0, Width, Height);
-                GL.glClearColor(0, 0, 0, 1);
-                GL.glClear(GL.GL_COLOR_BUFFER_BIT);
+                glEnable(GL_BLEND);
+                glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+                glViewport(0, 0, Width, Height);
+                glClearColor(0, 0, 0, 1);
+                glClear(GL_COLOR_BUFFER_BIT);
 
                 // Render
                 for (var i = 0; i < blocks.Length; i++)

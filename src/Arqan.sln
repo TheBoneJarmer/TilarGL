@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arqan.Example1", "Arqan.Exa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arqan.Example2", "Arqan.Example2\Arqan.Example2.csproj", "{EC3B5F5B-20BE-42E4-90C4-C75A58BE9280}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arqan.GLFW", "Arqan.GLFW\Arqan.GLFW.csproj", "{03D9FEA4-CDAD-4C11-96E1-853C01B051E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arqan.Glfw", "Arqan.Glfw\Arqan.Glfw.csproj", "{03D9FEA4-CDAD-4C11-96E1-853C01B051E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
