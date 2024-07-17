@@ -1,36 +1,36 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup Condition="'$(OS)' == 'Windows_NT'">
-        <PackageId>Arqan.GLFW.Windows</PackageId>
+        <PackageId>Arqan.FreeType.Windows</PackageId>
         <Configurations>Debug;Release;x64</Configurations>
         <DefineConstants>Windows</DefineConstants>
     </PropertyGroup>
 
     <PropertyGroup Condition="$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))">
-        <PackageId>Arqan.GLFW.Linux</PackageId>
+        <PackageId>Arqan.FreeType.Linux</PackageId>
         <DefineConstants>Linux</DefineConstants>
     </PropertyGroup>
 
     <PropertyGroup Condition="$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))">
-        <PackageId>Arqan.GLFW.OSX</PackageId>
+        <PackageId>Arqan.FreeType.OSX</PackageId>
         <DefineConstants>OSX</DefineConstants>
     </PropertyGroup>
-    
+
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
         <Nullable>enable</Nullable>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <LangVersion>latest</LangVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Title>Arqan GLFW</Title>
-        <Description>GLFW bindings for C#</Description>
+        <Title>Arqan FreeType</Title>
+        <Description>FreeType bindings for C#</Description>
         <Copyright>© 2020 - 2024 Ruben Labruyere</Copyright>
         <RepositoryUrl>git@github.com:thebonejarmer/arqan</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
     </PropertyGroup>
 
     <ItemGroup>
-        <None Link="\%(Filename)%(Extension)" Include="lib\glfw3.dll">
+        <None Link="\%(Filename)%(Extension)" Include="lib\freetype.dll">
             <Pack>True</Pack>
             <PackagePath>lib/netstandard2.1</PackagePath>
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>

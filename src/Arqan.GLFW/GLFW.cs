@@ -1,6 +1,6 @@
 using System.Runtime.InteropServices;
 
-namespace Arqan.GLFW
+namespace Arqan.Glfw
 {
     public static class GLFW
     {
